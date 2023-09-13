@@ -1,10 +1,12 @@
 package ru.nsu.vetrov;
 
-
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 
+/**
+ * Class tests the HeapSort class.
+ */
 public class HeapSortTest {
 
     /**
