@@ -1,7 +1,7 @@
 package ru.nsu.vetrov;
 
 /**
- * Class implements the heap sort algorithm
+ * Class implements the heap sort algorithm.
  */
 public class HeapSort {
     /**
