@@ -91,6 +91,16 @@ public class Polynomial {
     }
 
     @Override
+    public int hashCode() {
+        int result = 1;
+        for (int coefficient : coefficients) {
+            result = 31 * result + coefficient;
+        }
+        return result;
+    }
+
+
+    @Override
     public String toString() {
         StringBuilder result = new StringBuilder();
 
