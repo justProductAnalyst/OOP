@@ -1,9 +1,9 @@
 package ru.nsu.vetrov;
 
-import org.junit.jupiter.api.Test;
-
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
+
+import org.junit.jupiter.api.Test;
 
 public class PolynomialTest {
 
@@ -13,7 +13,8 @@ public class PolynomialTest {
         Polynomial p2 = new Polynomial(new int[]{3, 2, 8});
         Polynomial result = p1.plus(p2.differentiate(1));
 
-        assertEquals("7x^3 + 6x^2 + 19x + 6", result.toString());
+        Polynomial expected = new Polynomial(new int[]{6, 19, 6, 7});
+        assertEquals(expected, result);
     }
 
     @Test
@@ -22,7 +23,8 @@ public class PolynomialTest {
         Polynomial p2 = new Polynomial(new int[]{3, 2, 8});
         Polynomial result = p1.minus(p2);
 
-        assertEquals("7x^3 + -2x^2 + 1x + 1", result.toString());
+        Polynomial expected = new Polynomial(new int[]{1, 1, -2, 7});
+        assertEquals(expected, result);
     }
 
     @Test
