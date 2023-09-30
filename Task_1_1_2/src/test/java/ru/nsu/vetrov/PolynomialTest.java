@@ -5,8 +5,14 @@ import static org.junit.jupiter.api.Assertions.assertNotEquals;
 
 import org.junit.jupiter.api.Test;
 
+/**
+ * Test class for the Polynomial class.
+ */
 public class PolynomialTest {
 
+    /**
+     * Tests the addition of two polynomials.
+     */
     @Test
     public void testAddition() {
         Polynomial p1 = new Polynomial(new int[]{4, 3, 6, 7});
@@ -17,6 +23,9 @@ public class PolynomialTest {
         assertEquals(expected, result);
     }
 
+    /**
+     * Tests the subtraction of two polynomials.
+     */
     @Test
     public void testSubtraction() {
         Polynomial p1 = new Polynomial(new int[]{4, 3, 6, 7});
@@ -27,6 +36,9 @@ public class PolynomialTest {
         assertEquals(expected, result);
     }
 
+    /**
+     * Tests the evaluation of a polynomial at a specific value.
+     */
     @Test
     public void testEvaluation() {
         Polynomial p1 = new Polynomial(new int[]{4, 3, 6, 7});
@@ -36,6 +48,9 @@ public class PolynomialTest {
         assertEquals(3510, result);
     }
 
+    /**
+     * Tests the equality of two polynomials.
+     */
     @Test
     public void testEquality() {
         Polynomial p1 = new Polynomial(new int[]{4, 3, 6, 7});
@@ -46,6 +61,9 @@ public class PolynomialTest {
         assertNotEquals(p1, p3);
     }
 
+    /**
+     * Tests the subtraction of a polynomial with itself.
+     */
     @Test
     public void testAdditionWithZeroPolynomial() {
         Polynomial p1 = new Polynomial(new int[]{4, 3, 6, 7});
@@ -55,6 +73,9 @@ public class PolynomialTest {
         assertEquals(p1, result);
     }
 
+    /**
+     * Tests the subtraction of a polynomial with itself.
+     */
     @Test
     public void testSubtractionWithSamePolynomial() {
         Polynomial p1 = new Polynomial(new int[]{4, 3, 6, 7});
@@ -64,6 +85,9 @@ public class PolynomialTest {
         assertEquals(expected, result);
     }
 
+    /**
+     * Tests the differentiation of a constant polynomial.
+     */
     @Test
     public void testDifferentiationOfConstant() {
         Polynomial p1 = new Polynomial(new int[]{4});
@@ -75,6 +99,9 @@ public class PolynomialTest {
         assertEquals(expected, result);
     }
 
+    /**
+     * Tests the differentiation of a linear polynomial.
+     */
     @Test
     public void testDifferentiationOfLinearPolynomial() {
         Polynomial p1 = new Polynomial(new int[]{4, 3});
@@ -84,6 +111,9 @@ public class PolynomialTest {
         assertEquals(expected, result);
     }
 
+    /**
+     * Tests the evaluation of a zero polynomial.
+     */
     @Test
     public void testEvaluationOfZeroPolynomial() {
         Polynomial p1 = new Polynomial(new int[]{0, 0, 0, 0});
@@ -92,6 +122,9 @@ public class PolynomialTest {
         assertEquals(0, result);
     }
 
+    /**
+     * Tests the equality of two polynomials of different lengths.
+     */
     @Test
     public void testEqualityWithDifferentLengthPolynomials() {
         Polynomial p1 = new Polynomial(new int[]{4, 3, 6, 7});
@@ -100,6 +133,9 @@ public class PolynomialTest {
         assertNotEquals(p1, p2);
     }
 
+    /**
+     * Tests the string representation of a zero polynomial.
+     */
     @Test
     public void testToStringOfZeroPolynomial() {
         Polynomial p1 = new Polynomial(new int[]{0, 0, 0, 0});

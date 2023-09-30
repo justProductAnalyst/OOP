@@ -1,13 +1,28 @@
 package ru.nsu.vetrov;
 
 
+/**
+ * Represents a polynomial of the form \( P(x) = a_n x^n + a_{n-1} x^{n-1} + \ldots + a_1 x + a_0 \)
+ */
 public class Polynomial {
+    /**
+     * Coefficients of the polynomial.
+     */
     private final int[] coefficients;
 
+    /**
+     * Constructs a polynomial with given coefficients.
+     *
+     * @param coefficients the coefficients of the polynomial
+     */
     public Polynomial(int[] coefficients) {
         this.coefficients = coefficients;
     }
 
+    /**
+     * Main function
+     * @param args
+     */
     public static void main(String[] args) {
         Polynomial p1 = new Polynomial(new int[]{7, 6, 4, 3});
         Polynomial p2 = new Polynomial(new int[]{6, 8, 2, 3});
@@ -15,6 +30,12 @@ public class Polynomial {
         System.out.println(p1.times(p2).evaluate(2));
     }
 
+    /**
+     * Adds this polynomial with another polynomial.
+     *
+     * @param other the other polynomial
+     * @return the sum as a new polynomial
+     */
     public Polynomial plus(Polynomial other) {
         int maxDegree = Math.max(this.coefficients.length, other.coefficients.length);
         int[] result = new int[maxDegree];
@@ -31,6 +52,12 @@ public class Polynomial {
         return new Polynomial(result);
     }
 
+    /**
+     * Subtracts another polynomial from this polynomial.
+     *
+     * @param other the other polynomial
+     * @return the difference as a new polynomial
+     */
     public Polynomial minus(Polynomial other) {
         int maxDegree = Math.max(this.coefficients.length, other.coefficients.length);
         int[] result = new int[maxDegree];
@@ -47,6 +74,12 @@ public class Polynomial {
         return new Polynomial(result);
     }
 
+    /**
+     * Multiplies this polynomial with another polynomial.
+     *
+     * @param other the other polynomial
+     * @return the product as a new polynomial
+     */
     public Polynomial times(Polynomial other) {
         int[] result = new int[this.coefficients.length + other.coefficients.length - 1];
 
@@ -59,6 +92,12 @@ public class Polynomial {
         return new Polynomial(result);
     }
 
+    /**
+     * Evaluates the polynomial at a given point.
+     *
+     * @param x the point at which the polynomial is to be evaluated
+     * @return the value of the polynomial at the given point
+     */
     public int evaluate(int x) {
         int result = 0;
         int power = 1;
@@ -71,6 +110,12 @@ public class Polynomial {
         return result;
     }
 
+    /**
+     * Differentiates the polynomial a given number of times.
+     *
+     * @param order the number of times the polynomial is to be differentiated
+     * @return the derivative as a new polynomial
+     */
     public Polynomial differentiate(int order) {
         int[] result = this.coefficients;
 
