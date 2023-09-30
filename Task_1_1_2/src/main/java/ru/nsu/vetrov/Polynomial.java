@@ -67,15 +67,21 @@ public class Polynomial {
         int[] result = this.coefficients;
 
         for (int k = 0; k < order; k++) {
+            if (result.length == 0) {
+                return new Polynomial(new int[]{0});
+            }
             int[] newResult = new int[Math.max(result.length - 1, 0)];
             for (int i = 1; i < result.length; i++) {
                 newResult[i - 1] = result[i] * i;
             }
             result = newResult;
         }
-
+        if (result.length == 0) {
+            return new Polynomial(new int[]{0});
+        }
         return new Polynomial(result);
     }
+
 
     @Override
     public boolean equals(Object obj) {
@@ -99,15 +105,20 @@ public class Polynomial {
         return result;
     }
 
-
     @Override
     public String toString() {
         StringBuilder result = new StringBuilder();
 
+        boolean isFirst = true;
         for (int i = this.coefficients.length - 1; i >= 0; i--) {
+            if (this.coefficients[i] == 0 && isFirst && i == 0) {
+                result.append("0");
+                break;
+            }
             if (this.coefficients[i] == 0) continue;
 
-            if (!result.isEmpty()) result.append(" + ");
+            if (!isFirst) result.append(" + ");
+            isFirst = false;
 
             if (i > 1) {
                 result.append(this.coefficients[i]).append("x^").append(i);
@@ -120,4 +131,5 @@ public class Polynomial {
 
         return result.toString();
     }
+
 }
