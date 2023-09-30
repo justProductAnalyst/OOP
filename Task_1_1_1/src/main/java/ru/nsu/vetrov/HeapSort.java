@@ -1,5 +1,7 @@
 package ru.nsu.vetrov;
 
+import java.util.Arrays;
+
 /**
  * Class implements the heap sort algorithm.
  */
@@ -45,5 +47,12 @@ public class HeapSort {
 
             heapify(arr, i, 0);
         }
+    }
+    public static void main(String[] args) {
+        int[] input = {5, 4, 3, 2, 1};
+        int[] expected = {1, 2, 3, 4, 5};
+        HeapSort.sort(input);
+        System.out.println(Arrays.toString(expected));
+        System.out.println(Arrays.toString(input));
     }
 }
