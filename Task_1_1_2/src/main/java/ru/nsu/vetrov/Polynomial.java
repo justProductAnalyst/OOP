@@ -20,8 +20,12 @@ public class Polynomial {
         int[] result = new int[maxDegree];
 
         for (int i = 0; i < maxDegree; i++) {
-            if (i < this.coefficients.length) result[i] += this.coefficients[i];
-            if (i < other.coefficients.length) result[i] += other.coefficients[i];
+            if (i < this.coefficients.length) {
+                result[i] += this.coefficients[i];
+            }
+            if (i < other.coefficients.length) {
+                result[i] += other.coefficients[i];
+            }
         }
 
         return new Polynomial(result);
@@ -32,8 +36,12 @@ public class Polynomial {
         int[] result = new int[maxDegree];
 
         for (int i = 0; i < maxDegree; i++) {
-            if (i < this.coefficients.length) result[i] += this.coefficients[i];
-            if (i < other.coefficients.length) result[i] -= other.coefficients[i];
+            if (i < this.coefficients.length) {
+                result[i] += this.coefficients[i];
+            }
+            if (i < other.coefficients.length) {
+                result[i] -= other.coefficients[i];
+            }
         }
 
         return new Polynomial(result);
@@ -82,17 +90,20 @@ public class Polynomial {
         return new Polynomial(result);
     }
 
-
     @Override
     public boolean equals(Object obj) {
-        if (!(obj instanceof Polynomial other)) return false;
-
-        if (this.coefficients.length != other.coefficients.length) return false;
-
-        for (int i = 0; i < this.coefficients.length; i++) {
-            if (this.coefficients[i] != other.coefficients[i]) return false;
+        if (!(obj instanceof Polynomial)) {
+            return false;
         }
-
+        Polynomial other = (Polynomial) obj;
+        if (this.coefficients.length != other.coefficients.length) {
+            return false;
+        }
+        for (int i = 0; i < this.coefficients.length; i++) {
+            if (this.coefficients[i] != other.coefficients[i]) {
+                return false;
+            }
+        }
         return true;
     }
 
@@ -115,9 +126,13 @@ public class Polynomial {
                 result.append("0");
                 break;
             }
-            if (this.coefficients[i] == 0) continue;
+            if (this.coefficients[i] == 0) {
+                continue;
+            }
 
-            if (!isFirst) result.append(" + ");
+            if (!isFirst) {
+                result.append(" + ");
+            }
             isFirst = false;
 
             if (i > 1) {
