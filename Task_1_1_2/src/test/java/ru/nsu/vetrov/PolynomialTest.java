@@ -181,6 +181,7 @@ public class PolynomialTest {
 
         Polynomial expected = new Polynomial(new int[]{0});
         assertEquals(expected, result);
+        assertEquals(expected.hashCode(), result.hashCode());
     }
 
     /**

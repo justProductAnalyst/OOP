@@ -20,16 +20,6 @@ public class Polynomial {
     }
 
     /**
-     * Main function
-     */
-    public static void main(String[] args) {
-        Polynomial p1 = new Polynomial(new int[]{7, 6, 4, 3});
-        Polynomial p2 = new Polynomial(new int[]{6, 8, 2, 3});
-        System.out.println(p1.plus(p2.differentiate(1)).toString());
-        System.out.println(p1.times(p2).evaluate(2));
-    }
-
-    /**
      * Adds this polynomial with another polynomial.
      *
      * @param other the other polynomial
