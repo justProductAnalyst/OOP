@@ -21,7 +21,6 @@ public class Polynomial {
 
     /**
      * Main function
-     * @param args
      */
     public static void main(String[] args) {
         Polynomial p1 = new Polynomial(new int[]{7, 6, 4, 3});
