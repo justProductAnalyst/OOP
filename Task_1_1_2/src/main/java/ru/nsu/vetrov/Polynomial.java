@@ -16,7 +16,7 @@ public class Polynomial {
      * @param coefficients the coefficients of the polynomial
      */
     public Polynomial(int[] coefficients) {
-        this.coefficients = coefficients;
+        this.coefficients = coefficients.clone();
     }
 
     /**
