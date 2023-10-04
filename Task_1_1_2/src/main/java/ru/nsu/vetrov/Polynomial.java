@@ -2,7 +2,7 @@ package ru.nsu.vetrov;
 
 
 /**
- * Represents a polynomial of the form \( P(x) = a_n x^n + a_{n-1} x^{n-1} + \ldots + a_1 x + a_0 \)
+ * Represents a polynomial.
  */
 public class Polynomial {
     /**

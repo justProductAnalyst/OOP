@@ -172,7 +172,8 @@ public class PolynomialTest {
 
     /**
      * Test for differentiation that results in a zero polynomial.
-     * Computes the second derivative of a linear polynomial and checks if the result is a zero polynomial.
+     * Computes the second derivative of a linear polynomial
+     * and checks if the result is a zero polynomial.
      */
     @Test
     public void testDifferentiationToZeroPolynomial() {
