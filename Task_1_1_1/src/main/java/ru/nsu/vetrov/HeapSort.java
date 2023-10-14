@@ -1,5 +1,7 @@
 package ru.nsu.vetrov;
 
+import java.util.Arrays;
+
 /**
  * Class implements the heap sort algorithm.
  */
