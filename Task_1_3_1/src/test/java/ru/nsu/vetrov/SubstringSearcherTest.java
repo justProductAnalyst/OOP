@@ -14,6 +14,13 @@ import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
+import java.io.BufferedWriter;
+import java.io.IOException;
+import java.nio.charset.StandardCharsets;
+
+
 public class SubstringSearcherTest {
 
     private static final String TEST_FILE_NAME = "testInput.txt";
@@ -22,7 +29,8 @@ public class SubstringSearcherTest {
     @BeforeAll
     public static void setUp() throws IOException {
         testFilePath = Files.createTempFile(null, TEST_FILE_NAME);
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter(testFilePath.toFile()))) {
+        // Write to the file using UTF-8 encoding
+        try (BufferedWriter writer = Files.newBufferedWriter(testFilePath, StandardCharsets.UTF_8)) {
             writer.write("абракадабра");
         }
     }
@@ -33,6 +41,8 @@ public class SubstringSearcherTest {
         List<Integer> actualIndices = SubstringSearcher.find(testFilePath.toString(), "бра");
         assertEquals(expectedIndices, actualIndices, "The indices should match the expected values.");
     }
+
+    // Additional test cases go here
 
     @AfterAll
     public static void tearDown() throws IOException {
