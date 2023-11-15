@@ -7,6 +7,7 @@ import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.Arrays;
 import java.util.List;
 import org.junit.jupiter.api.AfterAll;
@@ -48,40 +49,36 @@ public class SubstringSearcherTest {
         Files.deleteIfExists(testFilePath);
     }
 
-    //    @Test
-    //    public void testFindSubstringInLargeFile() throws IOException {
-    //        Path largeFilePath = generateLargeFile(
-    //                "largeTestFile.txt",
-    //                15 * 1024L * 1024L * 1024L
-    //        ); // 15 GB
-    //        List<Integer> expectedIndices = Arrays.asList(1, 8);
-    //
-    //        // Perform the test
-    //        List<Integer> actualIndices = SubstringSearcher.find(
-    //                largeFilePath.toString(),
-    //                "Repeated"
-    //        );
-    //        assertEquals(
-    //                expectedIndices,
-    //                actualIndices,
-    //                "Indices should match for large file."
-    //        );
-    //
-    //        // Clean up the large file
-    //        Files.deleteIfExists(largeFilePath);
-    //    }
-    //
-    //        private Path generateLargeFile(String fileName, long sizeInBytes) throws IOException {
-    //            Path filePath = Files.createTempFile(null, fileName);
-    //            try (BufferedWriter writer = Files.newBufferedWriter(
-    //                    filePath,
-    //                    StandardCharsets.UTF_8)) {
-    //                while (Files.size(filePath) < sizeInBytes) {
-    //                    writer.write("someRepeatedContent");
-    //                }
-    //            }
-    //            return filePath;
-    //        }
+    /**
+     * Tests the find method for a multi-line text file.
+     */
+    @Test
+    public void testFindSubstringInMultiLineText() throws IOException {
+        Path filePath = Paths.get("main/resources/multiLineText.txt");
+        List<Integer> expectedIndices = Arrays.asList(10, 19, 42);
+        List<Integer> actualIndices = SubstringSearcher.find(filePath.toString(), "test");
+        assertEquals(
+                expectedIndices,
+                actualIndices,
+                "The indices should match the expected values in multiLineText.txt."
+        );
+    }
+
+    /**
+     * Tests the find method for a text file with repeated patterns.
+     */
+    @Test
+    public void testFindSubstringInRepeatedPatterns() throws IOException {
+        Path filePath = Paths.get("main/resources/repeatedPatterns.txt");
+        List<Integer> expectedIndices = Arrays.asList(0, 2, 4, 6);
+        List<Integer> actualIndices = SubstringSearcher.find(filePath.toString(), "aba");
+        assertEquals(
+                expectedIndices,
+                actualIndices,
+                "The indices should match the expected values in repeatedPatterns.txt."
+        );
+    }
+
 
     @Test
     public void testFindSubstring() throws IOException {
