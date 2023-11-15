@@ -71,15 +71,18 @@ public class SubstringSearcherTest {
     //        Files.deleteIfExists(largeFilePath);
     //    }
     //
-    //    private Path generateLargeFile(String fileName, long sizeInBytes) throws IOException {
-    //        Path filePath = Files.createTempFile(null, fileName);
-    //        try (BufferedWriter writer = Files.newBufferedWriter(filePath, StandardCharsets.UTF_8)) {
-    //            while (Files.size(filePath) < sizeInBytes) {
-    //                writer.write("someRepeatedContent");
-    //            }
-    //        }
-    //        return filePath;
-    //    }
+        private Path generateLargeFile(String fileName, long sizeInBytes) throws IOException {
+            Path filePath = Files.createTempFile(null, fileName);
+            try (BufferedWriter writer = Files.newBufferedWriter(
+                    filePath,
+                    StandardCharsets.UTF_8
+            )) {
+                while (Files.size(filePath) < sizeInBytes) {
+                    writer.write("someRepeatedContent");
+                }
+            }
+            return filePath;
+        }
 
     @Test
     public void testFindSubstring() throws IOException {
