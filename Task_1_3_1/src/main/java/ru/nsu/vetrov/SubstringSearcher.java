@@ -31,12 +31,8 @@ public class SubstringSearcher {
 
                 if (overlap) {
                     int overlapStart = Math.max(0, position - overlapSize);
-                    String overlapChunk = new String(
-                            buffer,
-                            overlapStart,
-                            overlapSize,
-                            StandardCharsets.UTF_8
-                    );
+                    String overlapChunk = new String(buffer, overlapStart,
+                            overlapSize, StandardCharsets.UTF_8);
                     chunk = overlapChunk + chunk;
                 }
 
