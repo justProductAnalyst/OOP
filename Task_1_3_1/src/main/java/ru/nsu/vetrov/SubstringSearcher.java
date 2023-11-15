@@ -12,7 +12,7 @@ public class SubstringSearcher {
     /**
      * Finds all occurrences of a substring within a text file and returns their starting indices.
      *
-     * @param filename The name of the file to search within.
+     * @param filename  The name of the file to search within.
      * @param substring The substring to find.
      * @return A list of starting indices of each occurrence of the substring.
      */
@@ -31,7 +31,12 @@ public class SubstringSearcher {
 
                 if (overlap) {
                     int overlapStart = Math.max(0, position - overlapSize);
-                    String overlapChunk = new String(buffer, overlapStart, overlapSize, StandardCharsets.UTF_8);
+                    String overlapChunk = new String(
+                            buffer,
+                            overlapStart,
+                            overlapSize,
+                            StandardCharsets.UTF_8
+                    );
                     chunk = overlapChunk + chunk;
                 }
 
