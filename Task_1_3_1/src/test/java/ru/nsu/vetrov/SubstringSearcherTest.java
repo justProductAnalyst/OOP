@@ -42,7 +42,28 @@ public class SubstringSearcherTest {
         assertEquals(expectedIndices, actualIndices, "The indices should match the expected values.");
     }
 
-    // Additional test cases go here
+    @Test
+    public void testFindSubstringInLargeFile() throws IOException {
+        Path largeFilePath = generateLargeFile("largeTestFile.txt", 15 * 1024L * 1024L * 1024L); // 15 GB
+        List<Integer> expectedIndices = Arrays.asList(1, 8);
+
+        // Perform the test
+        List<Integer> actualIndices = SubstringSearcher.find(largeFilePath.toString(), "Repeated");
+        assertEquals(expectedIndices, actualIndices, "Indices should match for large file.");
+
+        // Clean up the large file
+        Files.deleteIfExists(largeFilePath);
+    }
+
+    private Path generateLargeFile(String fileName, long sizeInBytes) throws IOException {
+        Path filePath = Files.createTempFile(null, fileName);
+        try (BufferedWriter writer = Files.newBufferedWriter(filePath, StandardCharsets.UTF_8)) {
+            while (Files.size(filePath) < sizeInBytes) {
+                writer.write("someRepeatedContent");
+            }
+        }
+        return filePath;
+    }
 
     @AfterAll
     public static void tearDown() throws IOException {
