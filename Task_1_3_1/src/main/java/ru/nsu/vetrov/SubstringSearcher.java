@@ -9,8 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * This class provides functionality to search for all occurrences of a substring
- * within a text file and returns the starting indices of each occurrence.
+ * This class provides a method to find all occurrences of a substring in a text file.
  */
 public class SubstringSearcher {
     /**
@@ -19,6 +18,7 @@ public class SubstringSearcher {
      * @param filename  The name of the file to search within.
      * @param substring The substring to find.
      * @return A list of starting indices of each occurrence of the substring.
+     * @throws IOException If an I/O error occurs.
      */
     public static List<Integer> find(String filename, String substring) throws IOException {
         List<Integer> indices = new ArrayList<>();
