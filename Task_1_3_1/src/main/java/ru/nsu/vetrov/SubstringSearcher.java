@@ -8,6 +8,10 @@ import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * This class provides functionality to search for all occurrences of a substring
+ * within a text file and returns the starting indices of each occurrence.
+ */
 public class SubstringSearcher {
     /**
      * Finds all occurrences of a substring within a text file and returns their starting indices.

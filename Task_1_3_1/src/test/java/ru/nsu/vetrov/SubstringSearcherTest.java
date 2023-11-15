@@ -14,21 +14,36 @@ import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-
+/**
+ * Test class for SubstringSearcher.
+ */
 public class SubstringSearcherTest {
 
     private static final String TEST_FILE_NAME = "testInput.txt";
     private static Path testFilePath;
 
+    /**
+     * Sets up the test environment before all tests.
+     *
+     * @throws IOException if an I/O error occurs
+     */
     @BeforeAll
     public static void setUp() throws IOException {
         testFilePath = Files.createTempFile(null, TEST_FILE_NAME);
         // Write to the file using UTF-8 encoding
-        try (BufferedWriter writer = Files.newBufferedWriter(testFilePath, StandardCharsets.UTF_8)) {
+        try (BufferedWriter writer = Files.newBufferedWriter(
+                testFilePath,
+                StandardCharsets.UTF_8)
+        ) {
             writer.write("абракадабра");
         }
     }
 
+    /**
+     * Cleans up the test environment after all tests.
+     *
+     * @throws IOException if an I/O error occurs
+     */
     @AfterAll
     public static void tearDown() throws IOException {
         Files.deleteIfExists(testFilePath);
