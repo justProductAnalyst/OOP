@@ -1,8 +1,6 @@
 package ru.nsu.vetrov;
 
-import java.io.BufferedInputStream;
-import java.io.IOException;
-import java.io.InputStream;
+import java.io.*;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
@@ -21,51 +19,51 @@ public class SubstringSearcher {
      */
     public static List<Integer> find(String resourceName, String substring) throws IOException {
         List<Integer> indices = new ArrayList<>();
-        try (InputStream is = SubstringSearcher.class.getClassLoader().getResourceAsStream(
-                resourceName)
-        ) {
-            if (is == null) {
-                throw new IOException("Resource not found: " + resourceName);
-            }
-            try (BufferedInputStream bis = new BufferedInputStream(is)) {
-                byte[] buffer = new byte[4096];
-                int overlapSize = substring.length() - 1;
-                int bytesRead;
-                int position = 0;
-                String previousEnd = "";
+        InputStream is = SubstringSearcher.class.getClassLoader().getResourceAsStream(resourceName);
 
-                while ((bytesRead = bis.read(buffer)) != -1) {
-                    String chunk = previousEnd + new String(
+        // If the resource is not found via class loader, try file input stream
+        if (is == null) {
+            try {
+                is = new FileInputStream(resourceName);
+            } catch (FileNotFoundException e) {
+                throw new IOException("File not found: " + resourceName, e);
+            }
+        }
+
+        try (BufferedInputStream bis = new BufferedInputStream(is)) {
+            byte[] buffer = new byte[4096];
+            int overlapSize = substring.length() - 1;
+            int bytesRead;
+            int position = 0;
+            String previousEnd = "";
+
+            while ((bytesRead = bis.read(buffer)) != -1) {
+                String chunk = previousEnd + new String(
+                        buffer,
+                        0,
+                        bytesRead,
+                        StandardCharsets.UTF_8
+                );
+
+                int index = -1;
+                while ((index = chunk.indexOf(substring, index + 1)) != -1) {
+                    indices.add(position + index);
+                }
+
+                if (bytesRead >= overlapSize) {
+                    previousEnd = new String(
                             buffer,
-                            0,
-                            bytesRead,
+                            bytesRead - overlapSize,
+                            overlapSize,
                             StandardCharsets.UTF_8
                     );
-
-                    int index = -1;
-                    while ((index = chunk.indexOf(substring, index + 1)) != -1) {
-                        indices.add(position + index);
-                    }
-
-                    if (bytesRead >= overlapSize) {
-                        previousEnd = new String(
-                                buffer,
-                                bytesRead - overlapSize,
-                                overlapSize, StandardCharsets.UTF_8
-                        );
-                    } else {
-                        previousEnd = new String(
-                                buffer,
-                                0,
-                                bytesRead,
-                                StandardCharsets.UTF_8
-                        );
-                    }
-
-                    position += bytesRead - overlapSize > 0 ? bytesRead - overlapSize : 0;
+                } else {
+                    previousEnd = new String(buffer, 0, bytesRead, StandardCharsets.UTF_8);
                 }
+
+                position += bytesRead - overlapSize > 0 ? bytesRead - overlapSize : 0;
             }
-            return indices;
         }
+        return indices;
     }
 }

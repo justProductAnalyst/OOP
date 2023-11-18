@@ -67,7 +67,7 @@ public class SubstringSearcherTest {
      * @throws IOException if an I/O error occurs
      */
     @Test
-    public void veryLargeFileTest() {
+    public void veryLargeFileTest() throws IOException {
         String fileName = "src/test/resources/large_file.txt";
         long fileSize = 1024L * 1024 * 1024 * 8; // 8GB
         List<Integer> res;
@@ -78,12 +78,10 @@ public class SubstringSearcherTest {
             for (long ind = 3; ind < fileSize; ind++) {
                 writer.write('0');
             }
-        } catch (IOException e) {
-            e.printStackTrace();
         }
 
         try {
-            res = SubstringSearcher.find("large_file.txt", "10");
+            res = SubstringSearcher.find(file.getPath(), "10");
         } catch (IOException e) {
             throw new RuntimeException("Failed to find substring in the file", e);
         } finally {
@@ -91,11 +89,6 @@ public class SubstringSearcherTest {
         }
 
         List<Integer> expected = Arrays.asList(1);
-
-        assertEquals(
-                expected,
-                res,
-                "The index should match the expected value in the large file."
-        );
+        assertEquals(expected, res, "The index should match the expected value in the large file.");
     }
 }
