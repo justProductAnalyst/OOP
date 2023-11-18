@@ -10,7 +10,6 @@ import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-
 import org.junit.jupiter.api.Test;
 
 /**
@@ -18,10 +17,6 @@ import org.junit.jupiter.api.Test;
  * It verifies the functionality of finding substrings within files loaded via getResourceAsStream.
  */
 public class SubstringSearcherTest {
-
-    private static final String TEST_RESOURCE_NAME = "testInput.txt";
-    private static Path testFilePath;
-
     /**
      * Tests the find method for a multi-line text file.
      *
@@ -34,6 +29,7 @@ public class SubstringSearcherTest {
                 "multiLineTest.txt",
                 "test"
         );
+        System.out.println(actualIndices);
         assertEquals(
                 expectedIndices,
                 actualIndices,
