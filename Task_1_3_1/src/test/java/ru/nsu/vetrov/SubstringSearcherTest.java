@@ -24,7 +24,7 @@ public class SubstringSearcherTest {
      */
     @Test
     public void testFindSubstringInMultiLineText() throws IOException {
-        List<Integer> expectedIndices = Arrays.asList(10, 47);
+        List<Integer> expectedIndices = Arrays.asList(10, 45);
         List<Integer> actualIndices = SubstringSearcher.find(
                 "multiLineTest.txt",
                 "test"
