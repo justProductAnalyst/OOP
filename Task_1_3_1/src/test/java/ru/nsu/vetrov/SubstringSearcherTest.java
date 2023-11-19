@@ -57,6 +57,22 @@ public class SubstringSearcherTest {
     }
 
     /**
+     * Tests the cyrillic text.
+     *
+     * @throws IOException if an I/O error occurs
+     */
+    @Test
+    public void testFindSubstringWithCyrillicCharacters() throws IOException {
+        // Assuming you have a file with Cyrillic text
+        List<Integer> expectedIndices = Arrays.asList(27);
+        List<Integer> actualIndices = SubstringSearcher.find(
+                "cyrillicText.txt",
+                "Нужно"
+        );
+        assertEquals(expectedIndices, actualIndices, "Indices should match for Cyrillic characters in cyrillicText.txt.");
+    }
+
+    /**
      * Tests the find method for a very large text file (15GB).
      * Note: This test is commented out due to its resource-intensive nature.
      *
@@ -64,12 +80,13 @@ public class SubstringSearcherTest {
      */
     @Test
     public void veryLargeFileTest() throws IOException {
-        String fileName = "src/test/resources/large_file.txt";
-        long fileSize = 1024L * 1024 * 1024 * 8; // 8GB
+        File tempFile = File.createTempFile("large_file", ".txt");
+        tempFile.deleteOnExit();
+
+        long fileSize = 1024L * 1024 * 1024 * 15;
         List<Integer> res;
 
-        File file = new File(fileName);
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter(file))) {
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(tempFile))) {
             writer.write("010");
             for (long ind = 3; ind < fileSize; ind++) {
                 writer.write('0');
@@ -77,14 +94,13 @@ public class SubstringSearcherTest {
         }
 
         try {
-            res = SubstringSearcher.find(file.getPath(), "10");
+            res = SubstringSearcher.find(tempFile.getAbsolutePath(), "10");
         } catch (IOException e) {
             throw new RuntimeException("Failed to find substring in the file", e);
-        } finally {
-            file.delete();
         }
 
         List<Integer> expected = Arrays.asList(1);
         assertEquals(expected, res, "The index should match the expected value in the large file.");
     }
+
 }
