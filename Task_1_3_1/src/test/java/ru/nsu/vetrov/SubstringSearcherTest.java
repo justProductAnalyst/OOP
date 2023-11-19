@@ -69,7 +69,11 @@ public class SubstringSearcherTest {
                 "cyrillicText.txt",
                 "Нужно"
         );
-        assertEquals(expectedIndices, actualIndices, "Indices should match for Cyrillic characters in cyrillicText.txt.");
+        assertEquals(
+                expectedIndices,
+                actualIndices,
+                "Indices should match for Cyrillic characters in cyrillicText.txt."
+        );
     }
 
     /**
@@ -100,7 +104,11 @@ public class SubstringSearcherTest {
         }
 
         List<Integer> expected = Arrays.asList(1);
-        assertEquals(expected, res, "The index should match the expected value in the large file.");
+        assertEquals(
+                expected,
+                res,
+                "The index should match the expected value in the large file."
+        );
     }
 
 }
