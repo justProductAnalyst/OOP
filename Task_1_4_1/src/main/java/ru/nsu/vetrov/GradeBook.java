@@ -64,9 +64,12 @@ public class GradeBook {
      * @return True if eligible for honors, false otherwise.
      */
     public boolean isEligibleForHonors() {
-        long excellentGradesCount = grades.stream().filter(g -> g.getGrade() == EXCELLENT_GRADE).count();
-        boolean hasSatisfactoryGrade = grades.stream().anyMatch(g -> g.getGrade() == SATISFACTORY_GRADE);
-        boolean finalWorkIsExcellent = finalQualifyingWorkGrade != null && finalQualifyingWorkGrade.getGrade() == EXCELLENT_GRADE;
+        long excellentGradesCount = grades.stream()
+                .filter(g -> g.getGrade() == EXCELLENT_GRADE).count();
+        boolean hasSatisfactoryGrade = grades.stream()
+                .anyMatch(g -> g.getGrade() == SATISFACTORY_GRADE);
+        boolean finalWorkIsExcellent = finalQualifyingWorkGrade != null
+                && finalQualifyingWorkGrade.getGrade() == EXCELLENT_GRADE;
 
         return excellentGradesCount >= grades.size() * 0.75 && !hasSatisfactoryGrade && finalWorkIsExcellent;
     }

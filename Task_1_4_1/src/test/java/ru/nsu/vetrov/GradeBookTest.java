@@ -67,8 +67,10 @@ public class GradeBookTest {
     }
 
     /**
-     * Tests the eligibility for an increased scholarship based on excellent grades in the last semester.
-     * Verifies that the student is eligible for an increased scholarship when all grades in the last semester are excellent.
+     * Tests the eligibility for an increased scholarship based on
+     * excellent grades in the last semester.
+     * Verifies that the student is eligible for an increased scholarship
+     * when all grades in the last semester are excellent.
      */
     @Test
     public void testEligibilityForIncreasedScholarship() {
@@ -80,7 +82,8 @@ public class GradeBookTest {
 
     /**
      * Tests the ineligibility for an increased scholarship due to a non-excellent grade.
-     * Verifies that the student is not eligible for an increased scholarship if any grade in the last semester is not excellent.
+     * Verifies that the student is not eligible for an increased scholarship
+     * if any grade in the last semester is not excellent.
      */
     @Test
     public void testIneligibilityForIncreasedScholarshipDueToNonExcellentGrade() {
@@ -92,7 +95,8 @@ public class GradeBookTest {
 
     /**
      * Tests the functionality of incrementing the current semester.
-     * Verifies that grades added after incrementing the semester are associated with the new semester.
+     * Verifies that grades added after incrementing the semester
+     * are associated with the new semester.
      */
     @Test
     public void testIncrementSemester() {
