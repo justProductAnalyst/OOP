@@ -71,7 +71,8 @@ public class GradeBook {
         boolean finalWorkIsExcellent = finalQualifyingWorkGrade != null
                 && finalQualifyingWorkGrade.getGrade() == EXCELLENT_GRADE;
 
-        return excellentGradesCount >= grades.size() * 0.75 && !hasSatisfactoryGrade && finalWorkIsExcellent;
+        return excellentGradesCount >= grades.size() * 0.75
+                && !hasSatisfactoryGrade && finalWorkIsExcellent;
     }
 
     /**
