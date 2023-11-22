@@ -69,14 +69,12 @@ public class GradeBook {
      * @return True if eligible for honors, false otherwise.
      */
     public boolean isEligibleForHonors() {
-        Map<String, Grade> latestGrades = new HashMap<>();
-        for (Grade grade : grades) {
-            String subject = grade.getSubject();
-            if (!latestGrades.containsKey(subject)
-                    || latestGrades.get(subject).getSemester() < grade.getSemester()) {
-                latestGrades.put(subject, grade);
-            }
-        }
+        Map<String, Grade> latestGrades = grades.stream()
+                .collect(Collectors.toMap(
+                        Grade::getSubject,
+                        grade -> grade,
+                        (existing, replacement) -> existing.getSemester()
+                                > replacement.getSemester() ? existing : replacement));
 
         long excellentGradesCount = latestGrades.values().stream()
                 .filter(g -> g.getGrade() == EXCELLENT_GRADE)
