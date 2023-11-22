@@ -1,7 +1,9 @@
 package ru.nsu.vetrov;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 
 /**
@@ -37,8 +39,12 @@ public class GradeBook {
      * @param semester The semester in which the grade was achieved.
      */
     public void addGrade(int grade, String subject, int semester) {
+        if (grade < 1 || grade > 5) {
+            throw new IllegalArgumentException("Grade must be between 1 and 5.");
+        }
         grades.add(new Grade(grade, subject, semester));
     }
+
 
     /**
      * Sets the grade for the final qualifying work.
@@ -64,16 +70,26 @@ public class GradeBook {
      * @return True if eligible for honors, false otherwise.
      */
     public boolean isEligibleForHonors() {
-        long excellentGradesCount = grades.stream()
-                .filter(g -> g.getGrade() == EXCELLENT_GRADE).count();
-        boolean hasSatisfactoryGrade = grades.stream()
+        Map<String, Grade> latestGrades = new HashMap<>();
+        for (Grade grade : grades) {
+            String subject = grade.getSubject();
+            if (!latestGrades.containsKey(subject) || latestGrades.get(subject).getSemester() < grade.getSemester()) {
+                latestGrades.put(subject, grade);
+            }
+        }
+
+        long excellentGradesCount = latestGrades.values().stream()
+                .filter(g -> g.getGrade() == EXCELLENT_GRADE)
+                .count();
+        boolean hasSatisfactoryGrade = latestGrades.values().stream()
                 .anyMatch(g -> g.getGrade() == SATISFACTORY_GRADE);
         boolean finalWorkIsExcellent = finalQualifyingWorkGrade != null
                 && finalQualifyingWorkGrade.getGrade() == EXCELLENT_GRADE;
 
-        return excellentGradesCount >= grades.size() * 0.75
+        return excellentGradesCount >= latestGrades.size() * 0.75
                 && !hasSatisfactoryGrade && finalWorkIsExcellent;
     }
+
 
     /**
      * Determines if the student is eligible for an increased scholarship
@@ -134,5 +150,13 @@ public class GradeBook {
         public int getSemester() {
             return semester;
         }
+
+        /**
+         * Gets the subject of the grade.
+         *
+         * @return The subject.
+         */
+        public String getSubject() {return subject;}
+
     }
 }
