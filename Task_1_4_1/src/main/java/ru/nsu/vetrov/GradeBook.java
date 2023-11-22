@@ -11,18 +11,17 @@ import java.util.stream.Collectors;
  * to manage grades and evaluate academic achievements.
  */
 public class GradeBook {
+    private static final int EXCELLENT_GRADE = 5;
+    private static final int SATISFACTORY_GRADE = 3;
     private String studentName;
     private int currentSemester;
     private List<Grade> grades;
     private Grade finalQualifyingWorkGrade;
 
-    private static final int EXCELLENT_GRADE = 5;
-    private static final int SATISFACTORY_GRADE = 3;
-
     /**
      * Constructs a new GradeBook with initial values.
      *
-     * @param studentName The name of the student.
+     * @param studentName     The name of the student.
      * @param initialSemester The initial semester of the student.
      */
     public GradeBook(String studentName, int initialSemester) {
@@ -34,8 +33,8 @@ public class GradeBook {
     /**
      * Adds a grade to the grade book.
      *
-     * @param grade The grade achieved.
-     * @param subject The subject for which the grade was achieved.
+     * @param grade    The grade achieved.
+     * @param subject  The subject for which the grade was achieved.
      * @param semester The semester in which the grade was achieved.
      */
     public void addGrade(int grade, String subject, int semester) {
@@ -100,7 +99,7 @@ public class GradeBook {
     public boolean isEligibleForIncreasedScholarship() {
         List<Grade> lastSemesterGrades = grades.stream()
                 .filter(g -> g.getSemester() == currentSemester)
-                .collect(Collectors.toList());;
+                .collect(Collectors.toList());
 
         return lastSemesterGrades.stream().allMatch(g -> g.getGrade() == EXCELLENT_GRADE);
     }
@@ -123,8 +122,8 @@ public class GradeBook {
         /**
          * Constructs a new Grade.
          *
-         * @param grade The grade achieved.
-         * @param subject The subject for which the grade was achieved.
+         * @param grade    The grade achieved.
+         * @param subject  The subject for which the grade was achieved.
          * @param semester The semester in which the grade was achieved.
          */
         public Grade(int grade, String subject, int semester) {
@@ -156,7 +155,9 @@ public class GradeBook {
          *
          * @return The subject.
          */
-        public String getSubject() {return subject;}
+        public String getSubject() {
+            return subject;
+        }
 
     }
 }
