@@ -72,7 +72,8 @@ public class GradeBook {
         Map<String, Grade> latestGrades = new HashMap<>();
         for (Grade grade : grades) {
             String subject = grade.getSubject();
-            if (!latestGrades.containsKey(subject) || latestGrades.get(subject).getSemester() < grade.getSemester()) {
+            if (!latestGrades.containsKey(subject)
+                    || latestGrades.get(subject).getSemester() < grade.getSemester()) {
                 latestGrades.put(subject, grade);
             }
         }
