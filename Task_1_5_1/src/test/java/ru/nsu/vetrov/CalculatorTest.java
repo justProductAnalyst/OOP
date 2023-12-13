@@ -18,7 +18,7 @@ public class CalculatorTest {
      */
     @Test
     public void testAddition()
-            throws UnsupportedCalculationException {
+            throws UnsupportedCalculationException, DivisionByZeroException {
         assertEquals(3.0, PrefixEvaluator.evaluate("+ 1 2"), DELTA);
     }
 
@@ -27,7 +27,7 @@ public class CalculatorTest {
      */
     @Test
     public void testSubtraction()
-            throws UnsupportedCalculationException {
+            throws UnsupportedCalculationException, DivisionByZeroException {
         assertEquals(-1.0, PrefixEvaluator.evaluate("- 1 2"), DELTA);
     }
 
@@ -36,7 +36,7 @@ public class CalculatorTest {
      */
     @Test
     public void testMultiplication()
-            throws UnsupportedCalculationException {
+            throws UnsupportedCalculationException, DivisionByZeroException {
         assertEquals(2.0, PrefixEvaluator.evaluate("* 1 2"), DELTA);
     }
 
@@ -45,7 +45,7 @@ public class CalculatorTest {
      */
     @Test
     public void testDivision()
-            throws UnsupportedCalculationException {
+            throws UnsupportedCalculationException, DivisionByZeroException {
         assertEquals(0.5, PrefixEvaluator.evaluate("/ 1 2"), DELTA);
     }
 
@@ -54,7 +54,7 @@ public class CalculatorTest {
      */
     @Test
     public void testSin()
-            throws UnsupportedCalculationException {
+            throws UnsupportedCalculationException, DivisionByZeroException {
         assertEquals(Math.sin(Math.toRadians(30)),
                 PrefixEvaluator.evaluate("sin 30"), DELTA);
     }
@@ -64,7 +64,7 @@ public class CalculatorTest {
      */
     @Test
     public void testCosin()
-            throws UnsupportedCalculationException {
+            throws UnsupportedCalculationException, DivisionByZeroException {
         assertEquals(Math.cos(Math.toRadians(60)),
                 PrefixEvaluator.evaluate("cos 60"), DELTA);
     }
@@ -74,7 +74,7 @@ public class CalculatorTest {
      */
     @Test
     public void testLogarithm()
-            throws UnsupportedCalculationException {
+            throws UnsupportedCalculationException, DivisionByZeroException {
         assertEquals(Math.log(2), PrefixEvaluator.evaluate("log 2"), DELTA);
     }
 
@@ -83,7 +83,7 @@ public class CalculatorTest {
      */
     @Test
     public void testSquareRoot()
-            throws UnsupportedCalculationException {
+            throws UnsupportedCalculationException, DivisionByZeroException {
         assertEquals(Math.sqrt(4), PrefixEvaluator.evaluate("sqrt 4"), DELTA);
     }
 
@@ -92,7 +92,7 @@ public class CalculatorTest {
      */
     @Test
     public void testPower()
-            throws UnsupportedCalculationException {
+            throws UnsupportedCalculationException, DivisionByZeroException {
         assertEquals(Math.pow(2, 3), PrefixEvaluator.evaluate("pow 2 3"), DELTA);
     }
 
