@@ -1,5 +1,10 @@
 package ru.nsu.vetrov;
 
+import ru.nsu.vetrov.InvalidExpressionException;
+import ru.nsu.vetrov.Operation;
+import ru.nsu.vetrov.OperationFactory;
+import ru.nsu.vetrov.UnsupportedCalculationException;
+
 import java.util.ArrayList;
 import java.util.Stack;
 
@@ -34,13 +39,10 @@ class PrefixEvaluator {
                     }
                     double result = op.apply(operands.toArray(new Double[0]));
                     stack.push(result);
-                } catch (UnsupportedOperationException ex) {
+                } catch (UnsupportedCalculationException ex) {
                     throw new UnsupportedCalculationException(token);
                 }
             }
-        }
-        if (stack.size() != 1) {
-            throw new InvalidExpressionException(expression);
         }
         return stack.pop();
     }
