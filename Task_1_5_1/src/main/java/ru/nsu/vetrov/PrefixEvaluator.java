@@ -14,7 +14,7 @@ class PrefixEvaluator {
      * @return The result of the evaluated expression.
      */
     public static double evaluate(String expression)
-            throws UnsupportedCalculationException {
+            throws UnsupportedCalculationException, DivisionByZeroException {
         Stack<Double> stack = new Stack<>();
         String[] tokens = expression.split(" ");
         for (int i = tokens.length - 1; i >= 0; i--) {
@@ -31,8 +31,10 @@ class PrefixEvaluator {
                     }
                     double result = op.apply(operands.toArray(new Double[0]));
                     stack.push(result);
-                } catch (UnsupportedCalculationException | DivisionByZeroException ex) {
+                } catch (UnsupportedCalculationException  ex) {
                     throw new UnsupportedCalculationException(token);
+                } catch (DivisionByZeroException  ex) {
+                    throw new DivisionByZeroException();
                 }
             }
         }
