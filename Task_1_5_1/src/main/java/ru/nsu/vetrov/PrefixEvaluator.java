@@ -1,10 +1,5 @@
 package ru.nsu.vetrov;
 
-import ru.nsu.vetrov.InvalidExpressionException;
-import ru.nsu.vetrov.Operation;
-import ru.nsu.vetrov.OperationFactory;
-import ru.nsu.vetrov.UnsupportedCalculationException;
-
 import java.util.ArrayList;
 import java.util.Stack;
 
@@ -33,9 +28,6 @@ class PrefixEvaluator {
                     ArrayList<Double> operands = new ArrayList<>();
                     while (!stack.isEmpty() && operands.size() < 2) {
                         operands.add(stack.pop());
-                    }
-                    if (operands.size() < 2) {
-                        throw new InvalidExpressionException(expression);
                     }
                     double result = op.apply(operands.toArray(new Double[0]));
                     stack.push(result);
