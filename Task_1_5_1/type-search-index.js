@@ -1,1 +1,1 @@
-typeSearchIndex = [{"l":"All Classes","url":"allclasses-index.html"},{"p":"ru.nsu.vetrov","l":"Calculator"},{"p":"ru.nsu.vetrov","l":"CalculatorException"},{"p":"ru.nsu.vetrov","l":"InvalidExpressionException"},{"p":"ru.nsu.vetrov","l":"UnsupportedCalculationException"}]
+typeSearchIndex = [{"l":"All Classes","url":"allclasses-index.html"},{"p":"ru.nsu.vetrov","l":"Calculator"},{"p":"ru.nsu.vetrov","l":"CalculatorException"},{"p":"ru.nsu.vetrov","l":"DivisionByZeroException"},{"p":"ru.nsu.vetrov","l":"UnsupportedCalculationException"}]
