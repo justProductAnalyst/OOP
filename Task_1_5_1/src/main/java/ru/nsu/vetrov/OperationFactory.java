@@ -11,9 +11,8 @@ class OperationFactory {
      *
      * @param operator The operator symbol (e.g., "+", "-", "sin").
      * @return The corresponding operation.
-     * @throws UnsupportedOperationException if the operator is unsupported.
      */
-    public static Operation getOperation(String operator) {
+    public static Operation getOperation(String operator) throws UnsupportedCalculationException {
         switch (operator) {
             case "+":
                 return (operands) -> operands[0] + operands[1];
@@ -34,7 +33,7 @@ class OperationFactory {
             case "pow":
                 return (operands) -> Math.pow(operands[0], operands[1]);
             default:
-                throw new UnsupportedOperationException("Unsupported operation: " + operator);
+                throw new UnsupportedCalculationException("Unsupported operation: " + operator);
         }
     }
 }

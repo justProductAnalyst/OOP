@@ -12,10 +12,9 @@ class PrefixEvaluator {
      *
      * @param expression The expression to evaluate.
      * @return The result of the evaluated expression.
-     * @throws UnsupportedOperationException if an unsupported operation is encountered.
-     * @throws NumberFormatException         if a token cannot be parsed as a number.
      */
-    public static double evaluate(String expression) {
+    public static double evaluate(String expression)
+            throws InvalidExpressionException, UnsupportedCalculationException {
         Stack<Double> stack = new Stack<>();
         String[] tokens = expression.split(" ");
         for (int i = tokens.length - 1; i >= 0; i--) {
@@ -24,14 +23,24 @@ class PrefixEvaluator {
                 double number = Double.parseDouble(token);
                 stack.push(number);
             } catch (NumberFormatException e) {
-                Operation op = OperationFactory.getOperation(token);
-                ArrayList<Double> operands = new ArrayList<>();
-                while (!stack.isEmpty() && operands.size() < 2) {
-                    operands.add(stack.pop());
+                try {
+                    Operation op = OperationFactory.getOperation(token);
+                    ArrayList<Double> operands = new ArrayList<>();
+                    while (!stack.isEmpty() && operands.size() < 2) {
+                        operands.add(stack.pop());
+                    }
+                    if (operands.size() < 2) {
+                        throw new InvalidExpressionException(expression);
+                    }
+                    double result = op.apply(operands.toArray(new Double[0]));
+                    stack.push(result);
+                } catch (UnsupportedOperationException ex) {
+                    throw new UnsupportedCalculationException(token);
                 }
-                double result = op.apply(operands.toArray(new Double[0]));
-                stack.push(result);
             }
+        }
+        if (stack.size() != 1) {
+            throw new InvalidExpressionException(expression);
         }
         return stack.pop();
     }
