@@ -21,7 +21,12 @@ class OperationFactory {
             case "*":
                 return (operands) -> operands[0] * operands[1];
             case "/":
-                return (operands) -> operands[0] / operands[1];
+                return (operands) -> {
+                    if (operands[1] == 0) {
+                        throw new DivisionByZeroException();
+                    }
+                    return operands[0] / operands[1];
+                };
             case "sin":
                 return (operands) -> Math.sin(Math.toRadians(operands[0]));
             case "cos":
@@ -37,3 +42,4 @@ class OperationFactory {
         }
     }
 }
+

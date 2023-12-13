@@ -1,11 +1,9 @@
 package ru.nsu.vetrov;
 
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertTrue;
-
 import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.*;
 
 /**
  * Test class for the calculator functionality.
@@ -20,7 +18,7 @@ public class CalculatorTest {
      */
     @Test
     public void testAddition()
-            throws InvalidExpressionException, UnsupportedCalculationException {
+            throws UnsupportedCalculationException {
         assertEquals(3.0, PrefixEvaluator.evaluate("+ 1 2"), DELTA);
     }
 
@@ -29,7 +27,7 @@ public class CalculatorTest {
      */
     @Test
     public void testSubtraction()
-            throws InvalidExpressionException, UnsupportedCalculationException {
+            throws UnsupportedCalculationException {
         assertEquals(-1.0, PrefixEvaluator.evaluate("- 1 2"), DELTA);
     }
 
@@ -38,7 +36,7 @@ public class CalculatorTest {
      */
     @Test
     public void testMultiplication()
-            throws InvalidExpressionException, UnsupportedCalculationException {
+            throws UnsupportedCalculationException {
         assertEquals(2.0, PrefixEvaluator.evaluate("* 1 2"), DELTA);
     }
 
@@ -47,7 +45,7 @@ public class CalculatorTest {
      */
     @Test
     public void testDivision()
-            throws InvalidExpressionException, UnsupportedCalculationException {
+            throws UnsupportedCalculationException {
         assertEquals(0.5, PrefixEvaluator.evaluate("/ 1 2"), DELTA);
     }
 
@@ -56,7 +54,7 @@ public class CalculatorTest {
      */
     @Test
     public void testSin()
-            throws InvalidExpressionException, UnsupportedCalculationException {
+            throws UnsupportedCalculationException {
         assertEquals(Math.sin(Math.toRadians(30)),
                 PrefixEvaluator.evaluate("sin 30"), DELTA);
     }
@@ -66,7 +64,7 @@ public class CalculatorTest {
      */
     @Test
     public void testCosin()
-            throws InvalidExpressionException, UnsupportedCalculationException {
+            throws UnsupportedCalculationException {
         assertEquals(Math.cos(Math.toRadians(60)),
                 PrefixEvaluator.evaluate("cos 60"), DELTA);
     }
@@ -76,7 +74,7 @@ public class CalculatorTest {
      */
     @Test
     public void testLogarithm()
-            throws InvalidExpressionException, UnsupportedCalculationException {
+            throws UnsupportedCalculationException {
         assertEquals(Math.log(2), PrefixEvaluator.evaluate("log 2"), DELTA);
     }
 
@@ -85,7 +83,7 @@ public class CalculatorTest {
      */
     @Test
     public void testSquareRoot()
-            throws InvalidExpressionException, UnsupportedCalculationException {
+            throws UnsupportedCalculationException {
         assertEquals(Math.sqrt(4), PrefixEvaluator.evaluate("sqrt 4"), DELTA);
     }
 
@@ -94,7 +92,18 @@ public class CalculatorTest {
      */
     @Test
     public void testPower()
-            throws InvalidExpressionException, UnsupportedCalculationException {
+            throws UnsupportedCalculationException {
         assertEquals(Math.pow(2, 3), PrefixEvaluator.evaluate("pow 2 3"), DELTA);
+    }
+
+    /**
+     * Tests division by zero.
+     * Expects a DivisionByZeroException to be thrown.
+     */
+    @Test
+    public void testDivisionByZero() {
+        assertThrows(DivisionByZeroException.class, () -> {
+            PrefixEvaluator.evaluate("/ 10 0");
+        });
     }
 }
