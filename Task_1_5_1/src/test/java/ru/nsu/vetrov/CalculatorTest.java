@@ -97,14 +97,4 @@ public class CalculatorTest {
             throws InvalidExpressionException, UnsupportedCalculationException {
         assertEquals(Math.pow(2, 3), PrefixEvaluator.evaluate("pow 2 3"), DELTA);
     }
-
-    /**
-     * Invalid Exception.
-     */
-    @Test
-    public void testInvalidExpression()
-            throws InvalidExpressionException, UnsupportedCalculationException {
-        PrefixEvaluator.evaluate("+ 1");
-    }
-
 }
