@@ -1,23 +1,36 @@
 package ru.nsu.vetrov;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import java.time.LocalDateTime;
 import java.util.List;
 
+/**
+ * The NotebookTest class contains unit tests for the Notebook class.
+ * It tests the functionality of adding, removing, and retrieving notes
+ * with specific conditions such as date range and keywords.
+ */
 class NotebookTest {
 
     private Notebook notebook;
 
+    /**
+     * Sets up the test environment before each test.
+     * This method is called before the execution of each test method.
+     */
     @BeforeEach
     void setUp() {
         notebook = new Notebook();
     }
 
+    /**
+     * Tests the addNote method of the Notebook class.
+     * It adds a note to the notebook and checks if the note is added correctly.
+     */
     @Test
     void testAddNote() {
         notebook.addNote("Test Note", "This is a test note.");
@@ -33,6 +46,10 @@ class NotebookTest {
                 "Note content should match the added note.");
     }
 
+    /**
+     * Tests the removeNote method of the Notebook class.
+     * It adds a note and then removes it, checking if the notebook is empty afterward.
+     */
     @Test
     void testRemoveNote() {
         notebook.addNote("Test Note", "This is a test note.");
@@ -41,6 +58,10 @@ class NotebookTest {
         assertTrue(notes.isEmpty(), "Notebook should be empty after removing the note.");
     }
 
+    /**
+     * Tests the getNotesInRangeWithKeywords method of the Notebook class.
+     * It adds a note and retrieves it based on a date range and a set of keywords.
+     */
     @Test
     void testGetNotesInRangeWithKeywords() {
         notebook.addNote("Test Note", "This is a test note.");
