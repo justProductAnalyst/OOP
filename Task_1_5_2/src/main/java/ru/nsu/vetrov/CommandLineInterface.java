@@ -1,23 +1,22 @@
 package ru.nsu.vetrov;
 
 import org.apache.commons.cli.*;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * This class provides a command-line interface for interacting with a Notebook.
  */
 public class CommandLineInterface {
 
+    private static final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd.MM.yyyy HH:mm");
+
     /**
      * Executes a command based on the provided command line arguments.
      * It allows adding, removing, and showing notes in a Notebook.
-     *
-     * @param args The command line arguments. It supports the following options:
-     *             - add <title> <note>: to add a new note with the specified title and note.
-     *             - rm <title>: to remove a note with the specified title.
-     *             - show [options]: to show notes. If no options are provided, it shows all notes.
-     *             Options can be a date range, a keyword for filtering, etc. (implementation needed).
-     * @param notebook The Notebook instance where notes are stored and managed.
-     * @param serializer The NotebookSerializer instance used for persisting changes to the notebook.
      */
     public static void executeCommand(
             String[] args,
@@ -56,13 +55,35 @@ public class CommandLineInterface {
                 if (values == null || values.length == 0) {
                     notebook.getAllNotes().forEach(System.out::println);
                 } else {
-                    // Further implementation for the date range and keyword filtering
+                    // Parse date range and keywords from the command line arguments
+                    LocalDateTime start = parseDateTime(values[0]);
+                    LocalDateTime end = parseDateTime(values[1]);
+                    List<String> keywords = new ArrayList<>();
+                    for (int i = 2; i < values.length; i++) {
+                        keywords.add(values[i]);
+                    }
+
+                    List<Note> filteredNotes = notebook.getNotesInRangeWithKeywords(start, end, keywords);
+                    filteredNotes.forEach(System.out::println);
                 }
             }
         } catch (ParseException e) {
             System.out.println(e.getMessage());
+        } catch (DateTimeParseException e) {
+            System.out.println("Invalid date format. Please use the format dd.MM.yyyy HH:mm.");
         } catch (Exception e) {
             System.out.println("An error occurred: " + e.getMessage());
         }
+    }
+
+    /**
+     * Parses a string to a LocalDateTime object using the predefined formatter.
+     *
+     * @param dateTimeStr The string to parse.
+     * @return The LocalDateTime object.
+     * @throws DateTimeParseException if the string cannot be parsed.
+     */
+    private static LocalDateTime parseDateTime(String dateTimeStr) throws DateTimeParseException {
+        return LocalDateTime.parse(dateTimeStr, formatter);
     }
 }

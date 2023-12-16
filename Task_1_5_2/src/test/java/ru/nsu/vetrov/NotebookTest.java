@@ -72,4 +72,21 @@ class NotebookTest {
         assertFalse(notes.isEmpty(),
                 "Should find notes with given keyword in the given date range.");
     }
+
+    /**
+     * Tests the getters of the {@link Note} class.
+     * This test verifies that the title and content returned by the getters match
+     * what was set at the time of the Note object's creation. It also checks that
+     * the timestamp of the note is set correctly to a recent time.
+     */
+    @Test
+    void testGetters() {
+        String title = "Test Note";
+        String content = "This is a test note.";
+        Note note = new Note(title, content);
+        assertEquals(title, note.getTitle(), "getTitle should return the correct title.");
+        assertEquals(content, note.getContent(), "getContent should return the correct content.");
+        assertTrue(note.getTimestamp().isBefore(LocalDateTime.now().plusSeconds(1)),
+                "getTimestamp should return the creation time of the note.");
+    }
 }
