@@ -132,6 +132,8 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <hr>
 <pre>public class <span class="typeNameLabel">Notebook</span>
 extends java.lang.Object</pre>
+<div class="block">The Notebook class represents a collection of notes.
+ It allows adding, removing, and retrieving notes based on different criteria.</div>
 </li>
 </ul>
 </div>
@@ -153,7 +155,9 @@ extends java.lang.Object</pre>
 </tr>
 <tr class="altColor">
 <th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a href="#%3Cinit%3E()">Notebook</a></span>()</code></th>
-<td class="colLast">&nbsp;</td>
+<td class="colLast">
+<div class="block">Constructs a new Notebook instance with an empty list of notes.</div>
+</td>
 </tr>
 </table>
 </li>
@@ -177,24 +181,32 @@ extends java.lang.Object</pre>
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#addNote(java.lang.String,java.lang.String)">addNote</a></span>&#8203;(java.lang.String&nbsp;title,
        java.lang.String&nbsp;content)</code></th>
-<td class="colLast">&nbsp;</td>
+<td class="colLast">
+<div class="block">Adds a new note to the notebook.</div>
+</td>
 </tr>
 <tr id="i1" class="rowColor">
 <td class="colFirst"><code>java.util.List&lt;<a href="Note.html" title="class in ru.nsu.vetrov">Note</a>&gt;</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getAllNotes()">getAllNotes</a></span>()</code></th>
-<td class="colLast">&nbsp;</td>
+<td class="colLast">
+<div class="block">Retrieves all notes in the notebook, sorted by their timestamp.</div>
+</td>
 </tr>
 <tr id="i2" class="altColor">
 <td class="colFirst"><code>java.util.List&lt;<a href="Note.html" title="class in ru.nsu.vetrov">Note</a>&gt;</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getNotesInRangeWithKeywords(java.time.LocalDateTime,java.time.LocalDateTime,java.util.List)">getNotesInRangeWithKeywords</a></span>&#8203;(java.time.LocalDateTime&nbsp;start,
                            java.time.LocalDateTime&nbsp;end,
                            java.util.List&lt;java.lang.String&gt;&nbsp;keywords)</code></th>
-<td class="colLast">&nbsp;</td>
+<td class="colLast">
+<div class="block">Retrieves notes within a specified date range that contain any of the given keywords.</div>
+</td>
 </tr>
 <tr id="i3" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#removeNote(java.lang.String)">removeNote</a></span>&#8203;(java.lang.String&nbsp;title)</code></th>
-<td class="colLast">&nbsp;</td>
+<td class="colLast">
+<div class="block">Removes a note from the notebook based on its title.</div>
+</td>
 </tr>
 </table>
 <ul class="blockList">
@@ -227,6 +239,7 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>Notebook</h4>
 <pre>public&nbsp;Notebook()</pre>
+<div class="block">Constructs a new Notebook instance with an empty list of notes.</div>
 </li>
 </ul>
 </li>
@@ -247,6 +260,12 @@ extends java.lang.Object</pre>
 <h4>addNote</h4>
 <pre class="methodSignature">public&nbsp;void&nbsp;addNote&#8203;(java.lang.String&nbsp;title,
                     java.lang.String&nbsp;content)</pre>
+<div class="block">Adds a new note to the notebook.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>title</code> - The title of the note.</dd>
+<dd><code>content</code> - The content of the note.</dd>
+</dl>
 </li>
 </ul>
 <a id="removeNote(java.lang.String)">
@@ -256,6 +275,12 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>removeNote</h4>
 <pre class="methodSignature">public&nbsp;void&nbsp;removeNote&#8203;(java.lang.String&nbsp;title)</pre>
+<div class="block">Removes a note from the notebook based on its title.
+ The removal is case-insensitive.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>title</code> - The title of the note to be removed.</dd>
+</dl>
 </li>
 </ul>
 <a id="getAllNotes()">
@@ -265,6 +290,11 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>getAllNotes</h4>
 <pre class="methodSignature">public&nbsp;java.util.List&lt;<a href="Note.html" title="class in ru.nsu.vetrov">Note</a>&gt;&nbsp;getAllNotes()</pre>
+<div class="block">Retrieves all notes in the notebook, sorted by their timestamp.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>A list of all notes sorted by timestamp in ascending order.</dd>
+</dl>
 </li>
 </ul>
 <a id="getNotesInRangeWithKeywords(java.time.LocalDateTime,java.time.LocalDateTime,java.util.List)">
@@ -276,6 +306,17 @@ extends java.lang.Object</pre>
 <pre class="methodSignature">public&nbsp;java.util.List&lt;<a href="Note.html" title="class in ru.nsu.vetrov">Note</a>&gt;&nbsp;getNotesInRangeWithKeywords&#8203;(java.time.LocalDateTime&nbsp;start,
                                                         java.time.LocalDateTime&nbsp;end,
                                                         java.util.List&lt;java.lang.String&gt;&nbsp;keywords)</pre>
+<div class="block">Retrieves notes within a specified date range that contain any of the given keywords.
+ The search for keywords in note titles is case-insensitive.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>start</code> - The start of the date range.</dd>
+<dd><code>end</code> - The end of the date range.</dd>
+<dd><code>keywords</code> - A list of keywords to look for in the note titles.</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>A list of notes within the specified date range that
+ contain any of the keywords, sorted by timestamp.</dd>
+</dl>
 </li>
 </ul>
 </li>

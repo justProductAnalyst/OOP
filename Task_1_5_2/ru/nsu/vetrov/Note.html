@@ -137,6 +137,8 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <pre>public class <span class="typeNameLabel">Note</span>
 extends java.lang.Object
 implements java.io.Serializable</pre>
+<div class="block">The class represents a simple note with a title, content, and a timestamp.
+ It implements Serializable, allowing objects of this type to be serialized.</div>
 <dl>
 <dt><span class="seeLabel">See Also:</span></dt>
 <dd><a href="../../../serialized-form.html#ru.nsu.vetrov.Note">Serialized Form</a></dd>
@@ -163,7 +165,9 @@ implements java.io.Serializable</pre>
 <tr class="altColor">
 <th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a href="#%3Cinit%3E(java.lang.String,java.lang.String)">Note</a></span>&#8203;(java.lang.String&nbsp;title,
     java.lang.String&nbsp;content)</code></th>
-<td class="colLast">&nbsp;</td>
+<td class="colLast">
+<div class="block">Constructs a new Note with the specified title and content.</div>
+</td>
 </tr>
 </table>
 </li>
@@ -186,22 +190,30 @@ implements java.io.Serializable</pre>
 <tr id="i0" class="altColor">
 <td class="colFirst"><code>java.lang.String</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getContent()">getContent</a></span>()</code></th>
-<td class="colLast">&nbsp;</td>
+<td class="colLast">
+<div class="block">Returns the content of this note.</div>
+</td>
 </tr>
 <tr id="i1" class="rowColor">
 <td class="colFirst"><code>java.time.LocalDateTime</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getTimestamp()">getTimestamp</a></span>()</code></th>
-<td class="colLast">&nbsp;</td>
+<td class="colLast">
+<div class="block">Returns the timestamp of this note.</div>
+</td>
 </tr>
 <tr id="i2" class="altColor">
 <td class="colFirst"><code>java.lang.String</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getTitle()">getTitle</a></span>()</code></th>
-<td class="colLast">&nbsp;</td>
+<td class="colLast">
+<div class="block">Returns the title of this note.</div>
+</td>
 </tr>
 <tr id="i3" class="rowColor">
 <td class="colFirst"><code>java.lang.String</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#toString()">toString</a></span>()</code></th>
-<td class="colLast">&nbsp;</td>
+<td class="colLast">
+<div class="block">Returns a string representation of this note, including its title, content, and timestamp.</div>
+</td>
 </tr>
 </table>
 <ul class="blockList">
@@ -235,6 +247,13 @@ implements java.io.Serializable</pre>
 <h4>Note</h4>
 <pre>public&nbsp;Note&#8203;(java.lang.String&nbsp;title,
             java.lang.String&nbsp;content)</pre>
+<div class="block">Constructs a new Note with the specified title and content.
+ The timestamp is set to the current time.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>title</code> - the title of the note</dd>
+<dd><code>content</code> - the content of the note</dd>
+</dl>
 </li>
 </ul>
 </li>
@@ -254,6 +273,11 @@ implements java.io.Serializable</pre>
 <li class="blockList">
 <h4>getTitle</h4>
 <pre class="methodSignature">public&nbsp;java.lang.String&nbsp;getTitle()</pre>
+<div class="block">Returns the title of this note.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>the title of the note</dd>
+</dl>
 </li>
 </ul>
 <a id="getContent()">
@@ -263,6 +287,11 @@ implements java.io.Serializable</pre>
 <li class="blockList">
 <h4>getContent</h4>
 <pre class="methodSignature">public&nbsp;java.lang.String&nbsp;getContent()</pre>
+<div class="block">Returns the content of this note.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>the content of the note</dd>
+</dl>
 </li>
 </ul>
 <a id="getTimestamp()">
@@ -272,6 +301,11 @@ implements java.io.Serializable</pre>
 <li class="blockList">
 <h4>getTimestamp</h4>
 <pre class="methodSignature">public&nbsp;java.time.LocalDateTime&nbsp;getTimestamp()</pre>
+<div class="block">Returns the timestamp of this note.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>the timestamp of the note</dd>
+</dl>
 </li>
 </ul>
 <a id="toString()">
@@ -281,9 +315,13 @@ implements java.io.Serializable</pre>
 <li class="blockList">
 <h4>toString</h4>
 <pre class="methodSignature">public&nbsp;java.lang.String&nbsp;toString()</pre>
+<div class="block">Returns a string representation of this note, including its title, content, and timestamp.
+ The timestamp is formatted as "dd.MM.yyyy HH:mm".</div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
 <dd><code>toString</code>&nbsp;in class&nbsp;<code>java.lang.Object</code></dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>a string representation of the note</dd>
 </dl>
 </li>
 </ul>

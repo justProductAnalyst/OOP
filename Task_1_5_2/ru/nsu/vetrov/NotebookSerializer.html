@@ -132,6 +132,8 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <hr>
 <pre>public class <span class="typeNameLabel">NotebookSerializer</span>
 extends java.lang.Object</pre>
+<div class="block">This class provides the functionality to serialize and deserialize Notebook objects to and from JSON format.
+ It uses Jackson's ObjectMapper for handling JSON operations.</div>
 </li>
 </ul>
 </div>
@@ -153,7 +155,9 @@ extends java.lang.Object</pre>
 </tr>
 <tr class="altColor">
 <th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a href="#%3Cinit%3E()">NotebookSerializer</a></span>()</code></th>
-<td class="colLast">&nbsp;</td>
+<td class="colLast">
+<div class="block">Constructor for NotebookSerializer.</div>
+</td>
 </tr>
 </table>
 </li>
@@ -176,12 +180,16 @@ extends java.lang.Object</pre>
 <tr id="i0" class="altColor">
 <td class="colFirst"><code><a href="Notebook.html" title="class in ru.nsu.vetrov">Notebook</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#deserialize()">deserialize</a></span>()</code></th>
-<td class="colLast">&nbsp;</td>
+<td class="colLast">
+<div class="block">Deserializes a Notebook object from a JSON file.</div>
+</td>
 </tr>
 <tr id="i1" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#serialize(ru.nsu.vetrov.Notebook)">serialize</a></span>&#8203;(<a href="Notebook.html" title="class in ru.nsu.vetrov">Notebook</a>&nbsp;notebook)</code></th>
-<td class="colLast">&nbsp;</td>
+<td class="colLast">
+<div class="block">Serializes the given Notebook object into a JSON file.</div>
+</td>
 </tr>
 </table>
 <ul class="blockList">
@@ -214,6 +222,8 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>NotebookSerializer</h4>
 <pre>public&nbsp;NotebookSerializer()</pre>
+<div class="block">Constructor for NotebookSerializer.
+ Initializes a new ObjectMapper and registers the JavaTimeModule to support LocalDateTime serialization.</div>
 </li>
 </ul>
 </li>
@@ -234,9 +244,12 @@ extends java.lang.Object</pre>
 <h4>serialize</h4>
 <pre class="methodSignature">public&nbsp;void&nbsp;serialize&#8203;(<a href="Notebook.html" title="class in ru.nsu.vetrov">Notebook</a>&nbsp;notebook)
                throws java.io.IOException</pre>
+<div class="block">Serializes the given Notebook object into a JSON file.</div>
 <dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>notebook</code> - The Notebook object to be serialized.</dd>
 <dt><span class="throwsLabel">Throws:</span></dt>
-<dd><code>java.io.IOException</code></dd>
+<dd><code>java.io.IOException</code> - If an I/O error occurs while writing the file.</dd>
 </dl>
 </li>
 </ul>
@@ -248,9 +261,13 @@ extends java.lang.Object</pre>
 <h4>deserialize</h4>
 <pre class="methodSignature">public&nbsp;<a href="Notebook.html" title="class in ru.nsu.vetrov">Notebook</a>&nbsp;deserialize()
                      throws java.io.IOException</pre>
+<div class="block">Deserializes a Notebook object from a JSON file.
+ If the file does not exist, returns a new empty Notebook object.</div>
 <dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>The deserialized Notebook object.</dd>
 <dt><span class="throwsLabel">Throws:</span></dt>
-<dd><code>java.io.IOException</code></dd>
+<dd><code>java.io.IOException</code> - If an I/O error occurs while reading the file.</dd>
 </dl>
 </li>
 </ul>
