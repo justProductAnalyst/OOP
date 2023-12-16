@@ -1,6 +1,12 @@
 package ru.nsu.vetrov;
 
-import org.apache.commons.cli.*;
+import org.apache.commons.cli.CommandLine;
+import org.apache.commons.cli.CommandLineParser;
+import org.apache.commons.cli.DefaultParser;
+import org.apache.commons.cli.Option;
+import org.apache.commons.cli.Options;
+import org.apache.commons.cli.ParseException;
+
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
@@ -12,7 +18,8 @@ import java.util.List;
  */
 public class CommandLineInterface {
 
-    private static final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd.MM.yyyy HH:mm");
+    private static final DateTimeFormatter formatter = DateTimeFormatter.ofPattern(
+            "dd.MM.yyyy HH:mm");
 
     /**
      * Executes a command based on the provided command line arguments.
@@ -63,7 +70,11 @@ public class CommandLineInterface {
                         keywords.add(values[i]);
                     }
 
-                    List<Note> filteredNotes = notebook.getNotesInRangeWithKeywords(start, end, keywords);
+                    List<Note> filteredNotes = notebook.getNotesInRangeWithKeywords(
+                            start,
+                            end,
+                            keywords
+                    );
                     filteredNotes.forEach(System.out::println);
                 }
             }
