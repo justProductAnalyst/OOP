@@ -4,7 +4,11 @@ import org.apache.commons.cli.*;
 
 public class CommandLineInterface {
 
-    public static void executeCommand(String[] args, Notebook notebook, NotebookSerializer serializer) {
+    public static void executeCommand(
+            String[] args,
+            Notebook notebook,
+            NotebookSerializer serializer
+    ) {
         Options options = new Options();
 
         Option add = new Option("add", true, "Add a note");
