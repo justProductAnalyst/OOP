@@ -27,6 +27,12 @@
     catch(err) {
     }
 //-->
+var data = {"i0":2,"i1":32,"i2":2,"i3":2,"i4":2,"i5":2};
+var tabs = {65535:["t0","All Classes"],2:["t2","Class Summary"],32:["t6","Annotation Types Summary"]};
+var altColor = "altColor";
+var rowColor = "rowColor";
+var tableTab = "tableTab";
+var activeTableTab = "activeTableTab";
 var pathtoroot = "./";
 var useModuleDirectories = true;
 loadScripts(document, 'script');</script>
@@ -98,7 +104,7 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <ul class="blockList">
 <li class="blockList">
 <table class="typeSummary">
-<caption><span>Class Summary</span><span class="tabEnd">&nbsp;</span></caption>
+<caption><span id="t0" class="activeTableTab"><span>All Classes</span><span class="tabEnd">&nbsp;</span></span><span id="t2" class="tableTab"><span><a href="javascript:show(2);">Class Summary</a></span><span class="tabEnd">&nbsp;</span></span><span id="t6" class="tableTab"><span><a href="javascript:show(32);">Annotation Types Summary</a></span><span class="tabEnd">&nbsp;</span></span></caption>
 <tr>
 <th class="colFirst" scope="col">Class</th>
 <th class="colLast" scope="col">Description</th>
@@ -110,27 +116,34 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 </th>
 </tr>
 <tr id="i1" class="rowColor">
+<td class="colFirst"><a href="ru/nsu/vetrov/ExcludeFromJacocoGeneratedReport.html" title="annotation in ru.nsu.vetrov">ExcludeFromJacocoGeneratedReport</a></td>
+<th class="colLast" scope="row">
+<div class="block">Excluding From Jacoco Test Report interface.</div>
+</th>
+</tr>
+<tr id="i2" class="altColor">
 <td class="colFirst"><a href="ru/nsu/vetrov/Main.html" title="class in ru.nsu.vetrov">Main</a></td>
 <th class="colLast" scope="row">
 <div class="block">The Main class serves as the entry point for the application.</div>
 </th>
 </tr>
-<tr id="i2" class="altColor">
+<tr id="i3" class="rowColor">
 <td class="colFirst"><a href="ru/nsu/vetrov/Note.html" title="class in ru.nsu.vetrov">Note</a></td>
 <th class="colLast" scope="row">
 <div class="block">The class represents a simple note with a title, content, and a timestamp.</div>
 </th>
 </tr>
-<tr id="i3" class="rowColor">
+<tr id="i4" class="altColor">
 <td class="colFirst"><a href="ru/nsu/vetrov/Notebook.html" title="class in ru.nsu.vetrov">Notebook</a></td>
 <th class="colLast" scope="row">
 <div class="block">The Notebook class represents a collection of notes.</div>
 </th>
 </tr>
-<tr id="i4" class="altColor">
+<tr id="i5" class="rowColor">
 <td class="colFirst"><a href="ru/nsu/vetrov/NotebookSerializer.html" title="class in ru.nsu.vetrov">NotebookSerializer</a></td>
 <th class="colLast" scope="row">
-<div class="block">This class provides the functionality to serialize and deserialize Notebook objects to and from JSON format.</div>
+<div class="block">This class provides the functionality to serialize
+ and deserialize Notebook objects to and from JSON format.</div>
 </th>
 </tr>
 </table>
