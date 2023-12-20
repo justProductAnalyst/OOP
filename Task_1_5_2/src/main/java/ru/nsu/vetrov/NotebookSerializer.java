@@ -2,26 +2,28 @@ package ru.nsu.vetrov;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
-
 import java.io.File;
 import java.io.IOException;
 
 /**
- * This class provides the functionality to serialize and deserialize Notebook objects to and from JSON format.
+ * This class provides the functionality to serialize
+ * and deserialize Notebook objects to and from JSON format.
  * It uses Jackson's ObjectMapper for handling JSON operations.
  */
+@ExcludeFromJacocoGeneratedReport
 public class NotebookSerializer {
 
-    private static final String FILE_PATH = "notebook.json"; // The file path for storing the serialized data
-    private final ObjectMapper objectMapper; // ObjectMapper instance for JSON processing
+    private static final String FILE_PATH = "notebook.json";
+    private final ObjectMapper objectMapper;
 
     /**
      * Constructor for NotebookSerializer.
-     * Initializes a new ObjectMapper and registers the JavaTimeModule to support LocalDateTime serialization.
+     * Initializes a new ObjectMapper
+     * and registers the JavaTimeModule to support LocalDateTime serialization.
      */
     public NotebookSerializer() {
         objectMapper = new ObjectMapper();
-        objectMapper.registerModule(new JavaTimeModule()); // Support for LocalDateTime
+        objectMapper.registerModule(new JavaTimeModule());
     }
 
     /**

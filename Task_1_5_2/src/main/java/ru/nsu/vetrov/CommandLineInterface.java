@@ -1,5 +1,10 @@
 package ru.nsu.vetrov;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
+import java.util.ArrayList;
+import java.util.List;
 import org.apache.commons.cli.CommandLine;
 import org.apache.commons.cli.CommandLineParser;
 import org.apache.commons.cli.DefaultParser;
@@ -7,15 +12,10 @@ import org.apache.commons.cli.Option;
 import org.apache.commons.cli.Options;
 import org.apache.commons.cli.ParseException;
 
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
-import java.time.format.DateTimeParseException;
-import java.util.ArrayList;
-import java.util.List;
-
 /**
  * This class provides a command-line interface for interacting with a Notebook.
  */
+@ExcludeFromJacocoGeneratedReport
 public class CommandLineInterface {
 
     private static final DateTimeFormatter formatter = DateTimeFormatter.ofPattern(

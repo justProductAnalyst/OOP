@@ -6,6 +6,7 @@ import java.io.IOException;
  * The Main class serves as the entry point for the application.
  * It handles the initialization and setup of the Notebook and its Serializer.
  */
+@ExcludeFromJacocoGeneratedReport
 public class Main {
 
     /**

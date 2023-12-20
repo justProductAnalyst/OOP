@@ -58,8 +58,7 @@ public class Notebook {
      * @param start    The start of the date range.
      * @param end      The end of the date range.
      * @param keywords A list of keywords to look for in the note titles.
-     * @return A list of notes within the specified date range that
-     * contain any of the keywords, sorted by timestamp.
+     * @return A list of notes within the specified date range that contain any of the keywords
      */
     public List<Note> getNotesInRangeWithKeywords(
             LocalDateTime start,
