@@ -8,12 +8,11 @@ import java.io.IOException;
  */
 @ExcludeFromJacocoGeneratedReport
 public class Main {
-
     /**
-     * The main method is the entry point of the application.
-     *
-     * @param args The command-line arguments passed to the application.
-     */
+    * The main method is the entry point of the application.
+    *
+    * @param args The command-line arguments passed to the application.
+    */
     public static void main(String[] args) {
         NotebookSerializer serializer = new NotebookSerializer();
         Notebook notebook;
@@ -24,6 +23,7 @@ public class Main {
             notebook = new Notebook();
         }
 
-        CommandLineInterface.executeCommand(args, notebook, serializer);
+        CommandLineInterface cli = new CommandLineInterface(notebook, serializer);
+        cli.executeCommand(args);
     }
 }
