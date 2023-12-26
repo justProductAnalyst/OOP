@@ -60,7 +60,7 @@ public class CommandLineInterface {
     }
 
     /**
-     * Function for processing commands
+     * Function for processing commands.
      */
     private void processCommands(CommandLine cmd) throws IOException {
         if (cmd.hasOption("add")) {
@@ -75,7 +75,7 @@ public class CommandLineInterface {
     }
 
     /**
-     * Function for adding note
+     * Function for adding note.
      */
     private void addNoteCommand(CommandLine cmd) throws IOException {
         String[] values = cmd.getOptionValues("add");
@@ -85,7 +85,7 @@ public class CommandLineInterface {
     }
 
     /**
-     * Function for removing note
+     * Function for removing note.
      */
     private void removeNoteCommand(CommandLine cmd) throws IOException {
         String title = cmd.getOptionValue("rm");
@@ -95,7 +95,7 @@ public class CommandLineInterface {
     }
 
     /**
-     * Function for showing notes
+     * Function for showing notes.
      */
     private void showNotesCommand(CommandLine cmd) throws IOException {
         String[] values = cmd.getOptionValues("show");
@@ -104,8 +104,8 @@ public class CommandLineInterface {
         } else {
             LocalDateTime start = parseDateTime(values[0]);
             LocalDateTime end = parseDateTime(values[1]);
-            List<String> keywords = new ArrayList<>
-                    (Arrays.asList(values).subList(2, values.length));
+            List<String> keywords = new ArrayList<>(
+                    Arrays.asList(values).subList(2, values.length));
             List<Note> filteredNotes = notebook.getNotesInRangeWithKeywords(start, end, keywords);
             filteredNotes.forEach(System.out::println);
         }
