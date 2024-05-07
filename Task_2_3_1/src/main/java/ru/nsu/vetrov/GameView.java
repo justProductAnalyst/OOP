@@ -63,8 +63,8 @@ public class GameView {
         for (Snake snake : model.getSnakes()) {
             Color snakeColor = (snakeIndex == 0) ? Color.GREEN : Color.BLACK;
             for (Point p : snake.getPoints()) {
-                Rectangle rect = new Rectangle(p.getX() * 20,
-                        p.getY() * 20, 20, 20);
+                Rectangle rect = new Rectangle(p.getPointX() * 20,
+                        p.getPointY() * 20, 20, 20);
                 rect.setFill(snakeColor);
                 pane.getChildren().add(rect);
             }
@@ -72,8 +72,8 @@ public class GameView {
         }
 
         for (Food food : model.getFoods()) {
-            Rectangle rect = new Rectangle(food.getPosition().getX() * 20,
-                    food.getPosition().getY() * 20, 20, 20);
+            Rectangle rect = new Rectangle(food.getPosition().getPointX() * 20,
+                    food.getPosition().getPointY() * 20, 20, 20);
             rect.setFill(Color.RED);
             pane.getChildren().add(rect);
         }

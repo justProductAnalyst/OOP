@@ -3,9 +3,10 @@ package ru.nsu.vetrov;
 import java.util.List;
 
 /**
- * Provides AI strategies for the game, helping automated agents (like snakes) make decisions based on game state.
+ * Provides AI strategies for the game,
+ * helping automated agents (like snakes) make decisions based on game state.
  */
-public class AIStrategy {
+public class AiStrategy {
 
     /**
      * Determines the optimal direction for a snake
@@ -20,7 +21,7 @@ public class AIStrategy {
      * @return the best direction to move towards the closest food item
      */
     public static Direction closestFoodStrategy(Snake snake, List<Food> foods) {
-        if (foods.isEmpty()) return snake.getDirection();
+        if (foods.isEmpty()) {return snake.getDirection();}
 
         Point head = snake.getPoints().get(0);
         Food closestFood = null;
@@ -28,8 +29,8 @@ public class AIStrategy {
 
         for (Food food : foods) {
             double distance = Math.sqrt(
-                    Math.pow(food.getPosition().getX() - head.getX(), 2) +
-                    Math.pow(food.getPosition().getY() - head.getY(), 2));
+                    Math.pow(food.getPosition().getPointX() - head.getPointX(), 2)
+                    + Math.pow(food.getPosition().getPointY() - head.getPointY(), 2));
             if (distance < minDistance) {
                 minDistance = distance;
                 closestFood = food;
@@ -47,8 +48,8 @@ public class AIStrategy {
             if (snake.canChangeTo(possibleDirection)) {
                 Point nextPoint = snake.peekNextMoveInDirection(possibleDirection);
                 double newDistance = Math.sqrt(
-                        Math.pow(closestFood.getPosition().getX() - nextPoint.getX(), 2) +
-                        Math.pow(closestFood.getPosition().getY() - nextPoint.getY(), 2));
+                        Math.pow(closestFood.getPosition().getPointX() - nextPoint.getPointX(), 2)
+                        + Math.pow(closestFood.getPosition().getPointY() - nextPoint.getPointY(), 2));
                 if (newDistance < closestDistance) {
                     closestDistance = newDistance;
                     bestDirection = possibleDirection;

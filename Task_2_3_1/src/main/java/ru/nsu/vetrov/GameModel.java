@@ -34,7 +34,7 @@ public class GameModel {
                 width, height, false, null));
         snakes.add(new Snake(new Point(width / 3, height / 3),
                 width, height, true,
-                () -> AIStrategy.closestFoodStrategy(snakes.get(snakes.size() - 1), this.foods)));
+                () -> AiStrategy.closestFoodStrategy(snakes.get(snakes.size() - 1), this.foods)));
         spawnFood();
     }
 
@@ -43,12 +43,12 @@ public class GameModel {
      * moving snakes and handling food consumption or game over conditions.
      */
     public void update() {
-        if (gameOver) return;
+        if (gameOver) {return;}
 
         for (Snake snake : snakes) {
             Point nextPoint = snake.peekNextMove();
-            if (nextPoint.getX() < 0 || nextPoint.getX() >= width || nextPoint.getY() < 0 ||
-                    nextPoint.getY() >= height || intersectsOtherSnake(snake, nextPoint)) {
+            if (nextPoint.getPointX() < 0 || nextPoint.getPointX() >= width || nextPoint.getPointY() < 0
+                    || nextPoint.getPointY() >= height || intersectsOtherSnake(snake, nextPoint)) {
                 gameOver = true;
                 return;
             }

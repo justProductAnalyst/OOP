@@ -4,17 +4,18 @@ package ru.nsu.vetrov;
  * Represents a point in a two-dimensional space with x and y coordinates.
  */
 public class Point {
-    private int x, y;
+    private int pointX;
+    private int pointY;
 
     /**
      * Constructs a new point with the specified x and y coordinates.
      *
-     * @param x the x-coordinate of this point
-     * @param y the y-coordinate of this point
+     * @param pointX the x-coordinate of this point
+     * @param pointY the y-coordinate of this point
      */
-    public Point(int x, int y) {
-        this.x = x;
-        this.y = y;
+    public Point(int pointX, int pointY) {
+        this.pointX = pointX;
+        this.pointY = pointY;
     }
 
     /**
@@ -22,8 +23,8 @@ public class Point {
      *
      * @return the x-coordinate
      */
-    public int getX() {
-        return x;
+    public int getPointX() {
+        return pointX;
     }
 
     /**
@@ -31,8 +32,8 @@ public class Point {
      *
      * @return the y-coordinate
      */
-    public int getY() {
-        return y;
+    public int getPointY() {
+        return pointY;
     }
 
     /**
@@ -47,7 +48,7 @@ public class Point {
     public boolean equals(Object obj) {
         if (obj instanceof Point) {
             Point p = (Point) obj;
-            return x == p.x && y == p.y;
+            return pointX == p.pointX && pointY == p.pointY;
         }
         return false;
     }
@@ -60,6 +61,6 @@ public class Point {
      */
     @Override
     public int hashCode() {
-        return x * 31 + y;
+        return pointX * 31 + pointY;
     }
 }

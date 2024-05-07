@@ -11,8 +11,9 @@ import java.util.function.Supplier;
 public class Snake {
     private LinkedList<Point> points;
     private Direction direction;
-    private int width, height;
-    private boolean isAI;
+    private int width;
+    private int height;
+    private boolean isAi;
     private Supplier<Direction> aiStrategy;
 
     /**
@@ -21,20 +22,20 @@ public class Snake {
      * @param startPosition the starting position of the snake's head
      * @param width         the width of the grid the snake moves in
      * @param height        the height of the grid the snake moves in
-     * @param isAI          whether the snake is controlled by an AI
+     * @param isAi          whether the snake is controlled by an AI
      * @param aiStrategy    the AI strategy to use for movement decisions
      */
     public Snake(Point startPosition,
                 int width,
                 int height,
-                boolean isAI,
+                boolean isAi,
                 Supplier<Direction> aiStrategy) {
         points = new LinkedList<>();
         points.add(startPosition);
         this.direction = Direction.RIGHT;
         this.width = width;
         this.height = height;
-        this.isAI = isAI;
+        this.isAi = isAi;
         this.aiStrategy = aiStrategy;
     }
 
@@ -42,7 +43,7 @@ public class Snake {
      * Moves the snake in its current direction, updating its position on the grid.
      */
     public void move() {
-        if (isAI && aiStrategy != null) {
+        if (isAi && aiStrategy != null) {
             setDirection(aiStrategy.get());
         }
         Point newHead = peekNextMove();
@@ -80,8 +81,8 @@ public class Snake {
      */
     public Point peekNextMove() {
         Point head = points.getFirst();
-        int newX = head.getX();
-        int newY = head.getY();
+        int newX = head.getPointX();
+        int newY = head.getPointY();
 
         switch (direction) {
             case UP:
@@ -95,6 +96,8 @@ public class Snake {
                 break;
             case RIGHT:
                 newX = (newX + 1) % width;
+                break;
+            default:
                 break;
         }
 
@@ -141,8 +144,8 @@ public class Snake {
      */
     public Point peekNextMoveInDirection(Direction direction) {
         Point head = points.getFirst();
-        int newX = head.getX();
-        int newY = head.getY();
+        int newX = head.getPointX();
+        int newY = head.getPointY();
 
         switch (direction) {
             case UP:
@@ -156,6 +159,8 @@ public class Snake {
                 break;
             case RIGHT:
                 newX += 1;
+                break;
+            default:
                 break;
         }
 
