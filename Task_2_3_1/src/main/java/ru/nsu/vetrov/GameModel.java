@@ -9,7 +9,8 @@ import java.util.Random;
  * including snake movements, food generation, and game termination conditions.
  */
 public class GameModel {
-    private int width, height;
+    private int width;
+    private int height;
     private List<Snake> snakes;
     private List<Food> foods;
     private boolean gameOver;
@@ -43,7 +44,9 @@ public class GameModel {
      * moving snakes and handling food consumption or game over conditions.
      */
     public void update() {
-        if (gameOver) {return;}
+        if (gameOver) {
+            return;
+        }
 
         for (Snake snake : snakes) {
             Point nextPoint = snake.peekNextMove();

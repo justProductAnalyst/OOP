@@ -26,10 +26,10 @@ public class Snake {
      * @param aiStrategy    the AI strategy to use for movement decisions
      */
     public Snake(Point startPosition,
-                int width,
-                int height,
-                boolean isAi,
-                Supplier<Direction> aiStrategy) {
+                 int width,
+                 int height,
+                 boolean isAi,
+                 Supplier<Direction> aiStrategy) {
         points = new LinkedList<>();
         points.add(startPosition);
         this.direction = Direction.RIGHT;
@@ -66,10 +66,10 @@ public class Snake {
      * @param newDirection the new direction to set
      */
     public void setDirection(Direction newDirection) {
-        if ((this.direction == Direction.UP && newDirection != Direction.DOWN) ||
-                (this.direction == Direction.DOWN && newDirection != Direction.UP) ||
-                (this.direction == Direction.LEFT && newDirection != Direction.RIGHT) ||
-                (this.direction == Direction.RIGHT && newDirection != Direction.LEFT)) {
+        if ((this.direction == Direction.UP && newDirection != Direction.DOWN)
+                || (this.direction == Direction.DOWN && newDirection != Direction.UP)
+                || (this.direction == Direction.LEFT && newDirection != Direction.RIGHT)
+                || (this.direction == Direction.RIGHT && newDirection != Direction.LEFT)) {
             this.direction = newDirection;
         }
     }
@@ -117,11 +117,16 @@ public class Snake {
      */
     public Direction getReverseDirection() {
         switch (this.direction) {
-            case UP: return Direction.DOWN;
-            case DOWN: return Direction.UP;
-            case LEFT: return Direction.RIGHT;
-            case RIGHT: return Direction.LEFT;
-            default: return this.direction;
+            case UP:
+                return Direction.DOWN;
+            case DOWN:
+                return Direction.UP;
+            case LEFT:
+                return Direction.RIGHT;
+            case RIGHT:
+                return Direction.LEFT;
+            default:
+                return this.direction;
         }
     }
 

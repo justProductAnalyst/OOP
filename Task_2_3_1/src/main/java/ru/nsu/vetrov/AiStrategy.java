@@ -21,7 +21,9 @@ public class AiStrategy {
      * @return the best direction to move towards the closest food item
      */
     public static Direction closestFoodStrategy(Snake snake, List<Food> foods) {
-        if (foods.isEmpty()) {return snake.getDirection();}
+        if (foods.isEmpty()) {
+            return snake.getDirection();
+        }
 
         Point head = snake.getPoints().get(0);
         Food closestFood = null;
@@ -49,7 +51,9 @@ public class AiStrategy {
                 Point nextPoint = snake.peekNextMoveInDirection(possibleDirection);
                 double newDistance = Math.sqrt(
                         Math.pow(closestFood.getPosition().getPointX() - nextPoint.getPointX(), 2)
-                        + Math.pow(closestFood.getPosition().getPointY() - nextPoint.getPointY(), 2));
+                        + Math.pow(
+                                closestFood.getPosition().getPointY() - nextPoint.getPointY(), 2)
+                );
                 if (newDistance < closestDistance) {
                     closestDistance = newDistance;
                     bestDirection = possibleDirection;
