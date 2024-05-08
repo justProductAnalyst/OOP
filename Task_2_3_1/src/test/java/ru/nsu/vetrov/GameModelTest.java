@@ -1,10 +1,10 @@
 package ru.nsu.vetrov;
 
-import org.junit.jupiter.api.Test;
-
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
+
+import org.junit.jupiter.api.Test;
 
 /**
  * Provides unit tests for the {@link GameModel} class to ensure the game's main logic

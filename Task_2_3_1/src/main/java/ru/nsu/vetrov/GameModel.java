@@ -50,7 +50,8 @@ public class GameModel {
 
         for (Snake snake : snakes) {
             Point nextPoint = snake.peekNextMove();
-            if (nextPoint.getPointX() < 0 || nextPoint.getPointX() >= width || nextPoint.getPointY() < 0
+            if (nextPoint.getPointX() < 0 || nextPoint.getPointX() >= width
+                    || nextPoint.getPointY() < 0
                     || nextPoint.getPointY() >= height || intersectsOtherSnake(snake, nextPoint)) {
                 gameOver = true;
                 return;
