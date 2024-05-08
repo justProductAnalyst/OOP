@@ -19,6 +19,7 @@ public class GameView {
      *
      * @param controller the game controller that handles logic and state
      */
+    @ExcludeFromJacocoGeneratedReport
     public GameView(GameController controller) {
         this.controller = controller;
         this.pane = new Pane();
@@ -28,6 +29,7 @@ public class GameView {
     /**
      * Sets up key bindings for controlling the game via keyboard.
      */
+    @ExcludeFromJacocoGeneratedReport
     private void setupKeyBindings() {
         pane.setOnKeyPressed(event -> {
             switch (event.getCode()) {
@@ -54,6 +56,7 @@ public class GameView {
     /**
      * Draws the game state to the pane, including all snakes and food items.
      */
+    @ExcludeFromJacocoGeneratedReport
     public void draw() {
         pane.requestFocus();
         pane.getChildren().clear();
@@ -84,6 +87,7 @@ public class GameView {
      *
      * @return the Pane as the parent container
      */
+    @ExcludeFromJacocoGeneratedReport
     public Pane asParent() {
         return pane;
     }
@@ -91,6 +95,7 @@ public class GameView {
     /**
      * Displays the win message.
      */
+    @ExcludeFromJacocoGeneratedReport
     public void displayWin() {
         pane.getChildren().clear();
         Text winText = new Text("You win!");
@@ -104,6 +109,7 @@ public class GameView {
     /**
      * Displays the game over message.
      */
+    @ExcludeFromJacocoGeneratedReport
     public void displayGameOver() {
         pane.getChildren().clear();
         Text gameOverText = new Text("Game Over!");

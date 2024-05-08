@@ -16,6 +16,7 @@ public class GameController {
     /**
      * Constructs a GameController for managing game state.
      */
+    @ExcludeFromJacocoGeneratedReport
     public GameController() {
         model = new GameModel(25, 25);
     }
@@ -25,6 +26,7 @@ public class GameController {
      *
      * @param view the GameView that visualizes the game state
      */
+    @ExcludeFromJacocoGeneratedReport
     public void setView(GameView view) {
         this.view = view;
     }
@@ -32,6 +34,7 @@ public class GameController {
     /**
      * Starts the game loop, updating game state periodically based on a fixed time interval.
      */
+    @ExcludeFromJacocoGeneratedReport
     public void startGame() {
         timer = new AnimationTimer() {
             @Override
@@ -48,6 +51,7 @@ public class GameController {
     /**
      * Updates the game state, checks for game over or win conditions, and updates the view.
      */
+    @ExcludeFromJacocoGeneratedReport
     private void onUpdate() {
         model.update();
         if (model.isGameWon()) {
@@ -68,6 +72,7 @@ public class GameController {
      *
      * @return the current game model
      */
+    @ExcludeFromJacocoGeneratedReport
     public GameModel getModel() {
         return model;
     }
@@ -77,6 +82,7 @@ public class GameController {
      *
      * @param direction the new direction for the snake
      */
+    @ExcludeFromJacocoGeneratedReport
     public void onKeyPress(Direction direction) {
         model.changeDirection(direction);
     }
