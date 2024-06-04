@@ -1,60 +1,45 @@
 package ru.nsu.vetrov;
 
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 public class Task {
-    private String id;
     private String name;
-    private int maxPoints;
+    private int maxMark;
     private LocalDate softDeadline;
     private LocalDate hardDeadline;
 
-    public Task(String id, String name, int maxPoints, LocalDate softDeadline, LocalDate hardDeadline) {
-        this.id = id;
+    public void setName(String name) {
         this.name = name;
-        this.maxPoints = maxPoints;
-        this.softDeadline = softDeadline;
-        this.hardDeadline = hardDeadline;
     }
 
-    // Getters and setters
-    public String getId() {
-        return id;
+    public void setMaxMark(int maxMark) {
+        this.maxMark = maxMark;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public void setSoftDeadline(String date) {
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd.MM.yyyy");
+        this.softDeadline = LocalDate.parse(date, formatter);
+    }
+
+    public void setHardDeadline(String date) {
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd.MM.yyyy");
+        this.hardDeadline = LocalDate.parse(date, formatter);
     }
 
     public String getName() {
         return name;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public int getMaxPoints() {
-        return maxPoints;
-    }
-
-    public void setMaxPoints(int maxPoints) {
-        this.maxPoints = maxPoints;
+    public int getMaxMark() {
+        return maxMark;
     }
 
     public LocalDate getSoftDeadline() {
         return softDeadline;
     }
 
-    public void setSoftDeadline(LocalDate softDeadline) {
-        this.softDeadline = softDeadline;
-    }
-
     public LocalDate getHardDeadline() {
         return hardDeadline;
-    }
-
-    public void setHardDeadline(LocalDate hardDeadline) {
-        this.hardDeadline = hardDeadline;
     }
 }

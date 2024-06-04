@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Report</title>
+</head>
+<body>
+<h1>Task Report</h1>
+<div th:each="taskResultList, iterStat : ${results}">
+    <h2 th:text="${tasks[iterStat.index].name}">Task Name</h2>
+    <ul th:each="result : ${taskResultList}">
+        <li>
+            Student: <span th:text="${result.student.name}">Student Name</span> -
+            Build: <span th:text="${result.builds}">Build Status</span> -
+            Tests: <span th:text="${result.testCount}">Test Count</span> -
+            Failures: <span th:text="${result.failCount}">Fail Count</span> -
+            Skips: <span th:text="${result.skipCount}">Skip Count</span> -
+            Coverage: <span th:text="${result.coverage}">Coverage</span>% -
+            Checkstyle: <span th:text="${result.checkstyle}">Checkstyle Result</span> -
+            Soft Pass: <span th:text="${result.softPass}">Soft Pass</span> -
+            Hard Pass: <span th:text="${result.hardPass}">Hard Pass</span>
+        </li>
+    </ul>
+</div>
+</body>
+</html>
