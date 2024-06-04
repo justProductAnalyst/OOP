@@ -17,7 +17,8 @@ import static com.github.stefanbirkner.systemlambda.SystemLambda.catchSystemExit
 
 public class CheckstyleUtils {
 
-    public static CheckstyleResult getCheckstyleResult(Task task, Student student, String repoPrefix) {
+    public static CheckstyleResult getCheckstyleResult(Task task,
+                                                       Student student, String repoPrefix) {
         CheckstyleResult checkstyle = CheckstyleResult.CLEAN;
         try {
             String outFile = "checkstyle.txt";
@@ -35,7 +36,8 @@ public class CheckstyleUtils {
                             "%s/%s/%s/src/test/java/",
                             repoPrefix, student.getNickname(), task.getName()
                     );
-                    Main.main("-c", configPath, "-o", outFile, mainSourcePath, testSourcePath);
+                    Main.main("-c", configPath, "-o",
+                            outFile, mainSourcePath, testSourcePath);
                 } catch (IOException e) {
                     System.out.println("Failed to call checkstyle: " + e);
                 }

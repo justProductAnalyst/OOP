@@ -1,7 +1,8 @@
 package ru.nsu.vetrov;
 
-import java.util.ArrayList;
 import groovy.lang.Closure;
+
+import java.util.ArrayList;
 
 public class CheckerConfig {
     private ArrayList<Task> tasks;

@@ -13,4 +13,5 @@ public record TaskResult(
         CheckstyleResult checkstyle,
         boolean softPass,
         boolean hardPass
-) {}
+) {
+}

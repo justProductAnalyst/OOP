@@ -23,11 +23,18 @@ public class TaskRunner {
 
     public TaskResult runTask() {
         System.out.println("Checking task " + task.getName() + "@" + student.getNickname());
-        File projectFile = new File(String.format("%s/%s/%s", repoPrefix, student.getNickname(), task.getName()));
+        File projectFile = new File(String.format("%s/%s/%s",
+                repoPrefix, student.getNickname(), task.getName()));
 
         if (!projectFile.exists()) {
-            System.out.println("Project directory not found for " + student.getNickname() + " and task " + task.getName());
-            return new TaskResult(student, false, 0, 0, 0, 0, CheckstyleResult.CLEAN, false, false);
+            System.out.println("Project directory not found for "
+                    + student.getNickname() + " and task " + task.getName());
+            return new TaskResult(student,
+                    false,
+                    0,
+                    0,
+                    0,
+                    0, CheckstyleResult.CLEAN, false, false);
         }
 
         boolean builds = runGradleWrapperTask(projectFile, "build", "-x", "test");
@@ -35,15 +42,19 @@ public class TaskRunner {
         TestUtils.TestCounts counts = TestUtils.getTestCounts(repoPrefix, student, task);
         int coveragePercent = 0;
         try {
-            coveragePercent = tests ? TestUtils.getCoveragePercentage(projectFile, repoPrefix, student, task) : 0;
+            coveragePercent = tests ? TestUtils.getCoveragePercentage(projectFile,
+                    repoPrefix, student, task) : 0;
         } catch (Exception e) {
             System.out.println("Error while getting coverage percentage: " + e.getMessage());
         }
-        CheckstyleResult checkstyle = CheckstyleUtils.getCheckstyleResult(task, student, repoPrefix);
+        CheckstyleResult checkstyle = CheckstyleUtils.getCheckstyleResult(task,
+                student, repoPrefix);
         runGradleWrapperTask(projectFile, "javadoc");
         TaskUtils.PassResults passes = TaskUtils.getPassResults(task, student, repoPrefix);
 
-        return new TaskResult(student, builds, counts.total(), counts.fail(), counts.skip(), coveragePercent, checkstyle, passes.soft(), passes.hard());
+        return new TaskResult(student, builds, counts.total(),
+                counts.fail(), counts.skip(),
+                coveragePercent, checkstyle, passes.soft(), passes.hard());
     }
 
     private boolean runGradleWrapperTask(File projectDir, String... tasks) {
@@ -59,11 +70,13 @@ public class TaskRunner {
             Process process = processBuilder.start();
             int exitCode = process.waitFor();
             if (exitCode != 0) {
-                System.out.println("Failed to run gradle task: " + String.join(" ", tasks));
+                System.out.println("Failed to run gradle task: "
+                        + String.join(" ", tasks));
             }
             return exitCode == 0;
         } catch (IOException | InterruptedException e) {
-            System.out.println("Failed to run gradle task: " + String.join(" ", tasks) + ". Error: " + e.getMessage());
+            System.out.println("Failed to run gradle task: "
+                    + String.join(" ", tasks) + ". Error: " + e.getMessage());
             return false;
         }
     }

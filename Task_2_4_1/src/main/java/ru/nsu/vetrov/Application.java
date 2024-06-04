@@ -6,7 +6,9 @@ import groovy.util.DelegatingScript;
 import org.codehaus.groovy.control.CompilerConfiguration;
 import ru.nsu.vetrov.utils.GitUtils;
 
-import java.io.*;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
 
 public class Application {
@@ -25,7 +27,8 @@ public class Application {
                 System.out.println("Error: No config found.");
                 return;
             }
-            DelegatingScript script = (DelegatingScript) shell.parse(new InputStreamReader(inputStream));
+            DelegatingScript script = (DelegatingScript) shell.parse(
+                    new InputStreamReader(inputStream));
             script.setBinding(binding);
             Object result = script.run();
 
