@@ -1,13 +1,13 @@
 package ru.nsu.vetrov;
 
-import org.thymeleaf.TemplateEngine;
-import org.thymeleaf.context.Context;
-import org.thymeleaf.templateresolver.FileTemplateResolver;
-
 import java.io.File;
 import java.io.FileOutputStream;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
+
+import org.thymeleaf.context.Context;
+import org.thymeleaf.TemplateEngine;
+import org.thymeleaf.templateresolver.FileTemplateResolver;
 
 public class ReportGenerator {
 

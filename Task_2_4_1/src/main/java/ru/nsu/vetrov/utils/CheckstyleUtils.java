@@ -3,15 +3,14 @@ package ru.nsu.vetrov.utils;
 import com.puppycrawl.tools.checkstyle.Main;
 import groovy.lang.Binding;
 import groovy.lang.GroovyShell;
-import org.codehaus.groovy.control.CompilerConfiguration;
-import ru.nsu.vetrov.CheckstyleResult;
-import ru.nsu.vetrov.Student;
-import ru.nsu.vetrov.Task;
-
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Scanner;
+import org.codehaus.groovy.control.CompilerConfiguration;
+import ru.nsu.vetrov.CheckstyleResult;
+import ru.nsu.vetrov.Student;
+import ru.nsu.vetrov.Task;
 
 import static com.github.stefanbirkner.systemlambda.SystemLambda.catchSystemExit;
 

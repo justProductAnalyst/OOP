@@ -1,14 +1,13 @@
 package ru.nsu.vetrov.utils;
 
-import org.eclipse.jgit.api.Git;
-import org.eclipse.jgit.revwalk.RevCommit;
-import ru.nsu.vetrov.Student;
-import ru.nsu.vetrov.Task;
-
 import java.io.File;
 import java.time.Instant;
 import java.time.LocalDate;
 import java.time.ZoneId;
+import org.eclipse.jgit.api.Git;
+import org.eclipse.jgit.revwalk.RevCommit;
+import ru.nsu.vetrov.Student;
+import ru.nsu.vetrov.Task;
 
 public class TaskUtils {
 

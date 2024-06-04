@@ -1,15 +1,14 @@
 package ru.nsu.vetrov.utils;
 
+import java.io.File;
+import java.io.IOException;
+import java.net.URISyntaxException;
 import org.eclipse.jgit.api.Git;
 import org.eclipse.jgit.api.errors.GitAPIException;
 import org.eclipse.jgit.transport.URIish;
 import org.eclipse.jgit.transport.UsernamePasswordCredentialsProvider;
 import ru.nsu.vetrov.CheckerConfig;
 import ru.nsu.vetrov.Student;
-
-import java.io.File;
-import java.io.IOException;
-import java.net.URISyntaxException;
 
 public class GitUtils {
 

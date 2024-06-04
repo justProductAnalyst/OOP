@@ -1,16 +1,15 @@
 package ru.nsu.vetrov.utils;
 
-import org.jsoup.Jsoup;
-import org.jsoup.nodes.Document;
-import org.jsoup.parser.Parser;
-import ru.nsu.vetrov.Student;
-import ru.nsu.vetrov.Task;
-
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
+import org.jsoup.parser.Parser;
+import ru.nsu.vetrov.Student;
+import ru.nsu.vetrov.Task;
 
 public class TestUtils {
 

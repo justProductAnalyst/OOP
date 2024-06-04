@@ -1,7 +1,6 @@
 package ru.nsu.vetrov;
 
 import groovy.lang.Closure;
-
 import java.util.ArrayList;
 
 public class CheckerConfig {

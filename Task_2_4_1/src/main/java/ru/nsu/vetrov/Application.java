@@ -3,13 +3,12 @@ package ru.nsu.vetrov;
 import groovy.lang.Binding;
 import groovy.lang.GroovyShell;
 import groovy.util.DelegatingScript;
-import org.codehaus.groovy.control.CompilerConfiguration;
-import ru.nsu.vetrov.utils.GitUtils;
-
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
+import org.codehaus.groovy.control.CompilerConfiguration;
+import ru.nsu.vetrov.utils.GitUtils;
 
 public class Application {
 

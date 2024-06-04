@@ -1,14 +1,13 @@
 package ru.nsu.vetrov;
 
-import ru.nsu.vetrov.utils.CheckstyleUtils;
-import ru.nsu.vetrov.utils.TaskUtils;
-import ru.nsu.vetrov.utils.TestUtils;
-
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import ru.nsu.vetrov.utils.CheckstyleUtils;
+import ru.nsu.vetrov.utils.TaskUtils;
+import ru.nsu.vetrov.utils.TestUtils;
 
 public class TaskRunner {
     private final String repoPrefix;
